@@ -12,9 +12,9 @@ for Javascript : console.log()
 
 
 """
+def printNumber():
+    val = int(input("Enter a number: "))
+    print(val)
+printNumber()
 
-val = input("Enter a number: ")
 
-val = int(val)
-print(type(val))
-print(val)
