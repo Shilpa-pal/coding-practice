@@ -1,8 +1,6 @@
 """
 Complete the function printNumber which takes an integer input from the user and prints it on the screen.
 
-
-
 Use:-
 
 for C++ : cout << variable_name;
@@ -72,5 +70,51 @@ while i < len(value):
 
 print("Total even numbers:", count_of_even)
 print("Total odd numbers:", count_of_odd)
+
+# write a program for factorial
+
+number = int(input("Enter a number for factorial:"))
+fact = 1
+for i in range(1,number + 1):
+   fact = fact *i
+print("The factorail of",number ,"is",fact)
+
+
+# cheack prime number
+primeNum = int(input(" Enter a number to cheack it is prime number or not."))
+
+if primeNum <=1:
+   print("it is not prime number")
+else:
+   is_prime = True
+   for i in range(2,primeNum):
+      if primeNum % i ==0:
+         is_prime=False
+         break
+if is_prime:
+   print(" it is prime number")
+else:
+   print(" it is not prime number")
+         
+        
+# To cheak prime number I solved it by using function
+def is_prime(num):
+   if num <=1:
+      return False
+   for j in range(2,num):
+      if num %j == 0:
+         return False
+   return True    #This line runs only if the loop finishes without finding any divisor.
+   
+number = int(input("Enter a number to cheack prime number"))
+if is_prime(number):
+   print(" it is prime number ")
+else:
+   print(" it is not prime number")
+
+# here is one more alternative which is one liner coding 
+
+number = int(input("Enter a number to know prime number:"))
+print("Prime" if all(number % i ==0 for i in range(2,number))and num > 1 else"Not Prime")
 
 
