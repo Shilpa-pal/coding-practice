@@ -18,6 +18,7 @@
 
 
 # ## use while loop to print a number till 10
+
 # num = 1
 # while num <=10:
 #     print(num)
@@ -26,6 +27,7 @@
 # print("end of the program")
 
 # # write a program that get some of integer value
+
 # nums = int(input("enter a number" )) ## input are like eg.123,2345
 # sum=0
 # while nums !=0:
