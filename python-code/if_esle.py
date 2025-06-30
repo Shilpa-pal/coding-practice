@@ -1,3 +1,21 @@
+#Check whether a number is one-digit, two-digit or more.
+n=int(input(" enter a number to check is one-digit, two-digit or more: "))
+if 0 <= n <= 9:
+    print(" it is one digit number.")
+elif 10 <= n <=99:
+    print(" it is 2 digit number.")
+else:
+    print(" it is more than 2 digit.")
+
+#Input a number and check if it's divisible by both 2 and 3.
+divisible = int(input(" Enter a number to check divisible: "))
+if divisible % 2 == 0 and divisible % 3 == 0:
+    print(" This number is divible by 2 and 3")
+else:
+    print("This number is  not divible by 2 and 3")
+
+
+
 #Take marks and print "Pass" if marks ≥ 40, otherwise "Fail".
 
 marks = int(input(" Enter your marks"))
@@ -6,25 +24,25 @@ if marks >=40:
 else:
     print(" your are fail")
 
-#Take a number and check if it’s a multiple of 3 or 7.
+# #Take a number and check if it’s a multiple of 3 or 7.
 
-multiple_num = int(input("Enter a number to cheak multiple"))
-if multiple_num  % 3 == 0 or multiple_num % 7 == 0:
-    print(" It is a multiple of 3 or 7.")
-else:
-    print("it is not mulitple of this number")
+# multiple_num = int(input("Enter a number to cheak multiple"))
+# if multiple_num  % 3 == 0 or multiple_num % 7 == 0:
+#     print(" It is a multiple of 3 or 7.")
+# else:
+#     print("it is not mulitple of this number")
 
-#Input three numbers and print the maximum.
-num1=int(input("Enter 1st number: "))
-num2=int(input("Enter 2nd number: "))
-num3=int(input("Enter 3rd number: "))
+# #Input three numbers and print the maximum.
+# num1=int(input("Enter 1st number: "))
+# num2=int(input("Enter 2nd number: "))
+# num3=int(input("Enter 3rd number: "))
 
-if num1>= num2 and num1>=num3:
-    print("num1 is greater",num1)
-elif num2>=num1 and num2 >= num3:
-    print("num 2nd is greter",num2)
-else:
-    print("number 3 is greter",num3)    
+# if num1>= num2 and num1>=num3:
+#     print("num1 is greater",num1)
+# elif num2>=num1 and num2 >= num3:
+#     print("num 2nd is greter",num2)
+# else:
+#     print("number 3 is greter",num3)    
 
 # # Input temperature and classify as Hot (≥30°C) or Cold (<30°C).
 # temp= float(input("Enter temprature °C:" ))
