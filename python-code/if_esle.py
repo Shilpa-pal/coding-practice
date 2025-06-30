@@ -1,21 +1,49 @@
-# Input temperature and classify as Hot (≥30°C) or Cold (<30°C).
-temp= float(input("Enter temprature °C:" ))
-if temp >=30 :
-    print("hot")
-else:
-    print(" cold")
+#Take marks and print "Pass" if marks ≥ 40, otherwise "Fail".
 
-#Input a year and check if it is a leap year.
-year = int(input(" enter the year for leap year to cheack"))
-if (year % 4== 0):
-    if (year % 100 !=0):
-        print("leap year")
-    elif(year % 400 == 0):
-        print("leap year")
-    else:
-        print(" it not leap year")
+marks = int(input(" Enter your marks"))
+if marks >=40:
+    print(" you are pass")
 else:
-    print("it not leap year")
+    print(" your are fail")
+
+#Take a number and check if it’s a multiple of 3 or 7.
+
+multiple_num = int(input("Enter a number to cheak multiple"))
+if multiple_num  % 3 == 0 or multiple_num % 7 == 0:
+    print(" It is a multiple of 3 or 7.")
+else:
+    print("it is not mulitple of this number")
+
+#Input three numbers and print the maximum.
+num1=int(input("Enter 1st number: "))
+num2=int(input("Enter 2nd number: "))
+num3=int(input("Enter 3rd number: "))
+
+if num1>= num2 and num1>=num3:
+    print("num1 is greater",num1)
+elif num2>=num1 and num2 >= num3:
+    print("num 2nd is greter",num2)
+else:
+    print("number 3 is greter",num3)    
+
+# # Input temperature and classify as Hot (≥30°C) or Cold (<30°C).
+# temp= float(input("Enter temprature °C:" ))
+# if temp >=30 :
+#     print("hot")
+# else:
+#     print(" cold")
+
+# #Input a year and check if it is a leap year.
+# year = int(input(" Enter the year for leap year to cheack"))
+# if (year % 4== 0):
+#     if (year % 100 !=0):
+#         print("leap year")
+#     elif(year % 400 == 0):
+#         print("leap year")
+#     else:
+#         print(" it not leap year")
+# else:
+#     print("it not leap year")
 
 # """
 # Given marks of a student, print on the screen:
@@ -116,4 +144,4 @@ else:
 
 
 
-
+            
