@@ -1,3 +1,28 @@
+
+#Take gender ("M" or "F") and age, print "Eligible" if:
+
+# Male ≥ 21
+# Female ≥ 18
+
+# age= int(input(" Enter your age :"))
+# gender = input(" Enter your Gender M Or F:").lower()
+# if age >= 21 and gender == "m":
+#     print("You are eligible")
+# elif age >= 18 and gender == "f":
+#     print(" your are eligible")
+# else:
+#     print(" you are not eligible")
+
+# intermediate level question
+
+#Check if a number is perfect square using if.
+sequre = int(input("Enter a number is perfect square: "))
+
+if int(sequre ** 0.5)** 2 == sequre:
+    print(" it is perfect sequre.")
+else:
+    print(" it is not perfect sequre number. ")
+
 #Check whether a number is one-digit, two-digit or more.
 n=int(input(" enter a number to check is one-digit, two-digit or more: "))
 if 0 <= n <= 9:
@@ -7,22 +32,33 @@ elif 10 <= n <=99:
 else:
     print(" it is more than 2 digit.")
 
-#Input a number and check if it's divisible by both 2 and 3.
-divisible = int(input(" Enter a number to check divisible: "))
-if divisible % 2 == 0 and divisible % 3 == 0:
-    print(" This number is divible by 2 and 3")
-else:
-    print("This number is  not divible by 2 and 3")
+# #Input a number and check if it's divisible by both 2 and 3.
+# divisible = int(input(" Enter a number to check divisible: "))
+# if divisible % 2 == 0 and divisible % 3 == 0:
+#     print(" This number is divible by 2 and 3")
+# else:
+#     print("This number is  not divible by 2 and 3")
+
+# #Take gender ("M" or "F") and age, print "Eligible" if:
+
+# # Male ≥ 21
+# # Female ≥ 18
+# age= int(input(" Enter your age :"))
+# gender = input(" Enter your Gender M Or F:").lower()
+# if age >= 21 and gender == "m":
+#     print("You are eligible")
+# elif age >= 18 and gender == "f":
+#     print(" your are eligible")
+# else:
 
 
+# #Take marks and print "Pass" if marks ≥ 40, otherwise "Fail".
 
-#Take marks and print "Pass" if marks ≥ 40, otherwise "Fail".
-
-marks = int(input(" Enter your marks"))
-if marks >=40:
-    print(" you are pass")
-else:
-    print(" your are fail")
+# marks = int(input(" Enter your marks"))
+# if marks >=40:
+#     print(" you are pass")
+# else:
+#     print(" your are fail")
 
 # #Take a number and check if it’s a multiple of 3 or 7.
 
