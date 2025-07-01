@@ -17,22 +17,22 @@
 
 // // //
 
-// function studentOfMarks(marks) {
-//     if (marks >= 90) 
-//         return "Your grade is A"
+function studentOfMarks(marks) {
+    if (marks >= 90) 
+        return "Your grade is A"
     
-//     else if (marks >= 70)
-//         return "Your grade is B"
-//     else if (marks >= 50)
-//         return "Your grade is C"
-//     else if (marks >= 35)
-//         return "Your grade is D"
-//     else {
-//         return "Your grade is E"
-//     }
-// }
-// let result = studentOfMarks(81)
-// console.log(result)
+    else if (marks >= 70)
+        return "Your grade is B"
+    else if (marks >= 50)
+        return "Your grade is C"
+    else if (marks >= 35)
+        return "Your grade is D"
+    else {
+        return "Your grade is E"
+    }
+}
+let result = studentOfMarks(81)
+console.log(result)
 
 //  check number is perfect sequre or not
 
