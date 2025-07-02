@@ -108,3 +108,14 @@ switch(week_number){
     console.log(" invalid week number")
 }
 
+// using array
+let dayNum = 3;
+let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+if (dayNum >= 1 && dayNum <= 7) {
+    console.log("Day is: " + days[dayNum - 1]); // here (-1 )used becuse when user enter 7,then -1 write to match correct index in array.
+} else {
+    console.log("Invalid day number");
+}
+
+
