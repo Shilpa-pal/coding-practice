@@ -36,7 +36,7 @@ console.log(result)
 
 //  check number is perfect sequre or not
 
-let input = prompt(" Enter a number to cheak perfect sequre root")
+let input = 7
 input = Number(input)
 if ((input ** 0.5) ** 2 == input){
     console.log(" It is perfect sequre root");
@@ -44,3 +44,16 @@ if ((input ** 0.5) ** 2 == input){
 else {
     console.log(" it is not perfect sequre")
 }
+
+
+//Input a number and check if it's in range 100 to 999.
+let numb = 110;
+
+if (numb >= 100 && numb <= 999) {
+    console.log("It is in range");
+} else {
+    console.log("It is not in range");
+}
+
+
+// Input the day number (1 to 7), print the day name.
