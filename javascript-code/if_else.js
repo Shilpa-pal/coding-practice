@@ -57,3 +57,54 @@ if (numb >= 100 && numb <= 999) {
 
 
 // Input the day number (1 to 7), print the day name.
+day_number = 6
+
+if (day_number === 1){
+    console.log("Monday")
+}else if  (day_number === 2){
+    console.log("Tuesday")
+}else if  (day_number === 3){
+    console.log("Wednesday")
+}else if  (day_number === 4){
+    console.log("Thusday")
+}else if  (day_number === 5){
+    console.log("Friday")
+}else if  (day_number === 6){
+    console.log("Saturday")
+}else if  (day_number === 7){
+    console.log("Sunday")
+
+}else{
+    console.log("invalid number you have chooosen ")
+}
+
+// above question is done by switch statmente
+
+week_number= 7
+
+switch(week_number){
+    case 1:
+        console.log("Monday");
+        break;
+    case 2:
+        console.log("Tuesday");
+        break;
+    case 3:
+        console.log("Wednesday");
+        break;
+    case 4:
+        console.log("Thusday");
+        break;
+    case 5:
+        console.log("Fridday");
+        break;
+    case 6:
+        console.log("Saturday");
+        break;
+    case 7:
+        console.log("Sonday");
+        break;
+    default:
+    console.log(" invalid week number")
+}
+
