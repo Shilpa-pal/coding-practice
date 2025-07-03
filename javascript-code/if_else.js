@@ -119,3 +119,53 @@ if (dayNum >= 1 && dayNum <= 7) {
 }
 
 
+// Check whether a person has fever or not based on body temperature input.
+
+fever = 109
+
+if (fever> 100){
+    console.log(" This person have fever")
+}else{
+    console.log(" It does not have fever")
+}
+
+let char = 3
+
+if (char >= "A" && char <= "Z") {
+    console.log("It is an uppercase letter");
+} else if (char >= "a" && char <= "z") {
+    console.log("It is a lowercase letter");
+} else if (char >= "0" && char <= "9") {
+    console.log("It is a digit");
+} else {
+    console.log("It is a special character");
+}
+
+// Write a program to accept two angles and check if they form a valid triangle with the third angle.
+let angle1 = 45
+let angle2 = 55
+
+let angle3 = 180 - (angle1 + angle2);
+
+if (angle1 > 0 && angle2 > 0 && angle3 > 0 && (angle1 + angle2 + angle3 === 180)) {
+    console.log(`Valid triangle. Third angle is ${angle3}°`);
+} else {
+    console.log("Invalid triangle.");
+}
+
+//
+ let num = 22
+
+if (num < 10 || num > 99) {
+    console.log("Please enter a valid 2-digit number.");
+} else {
+    let tens = Math.floor(num / 10);  // First digit
+    let ones = num % 10;              // Last digit
+
+    if (tens === ones) {
+        console.log("It is a palindrome.");
+    } else {
+        console.log("It is not a palindrome.");
+    }
+}
+
