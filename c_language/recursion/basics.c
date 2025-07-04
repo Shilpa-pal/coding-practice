@@ -3,22 +3,22 @@
 
 // calculate percentage Math, sci and hindi
 
-int calcultePer(int math,int sci,int hindi);
+// int calcultePer(int math,int sci,int hindi);
 
 
-int main(){
-    int math= 56;
-    int sci = 86;
-    int hindi = 84;
-    printf("%d",calcultePer(math,sci,hindi));
+// int main(){
+//     int math= 56;
+//     int sci = 86;
+//     int hindi = 84;
+//     printf("%d",calcultePer(math,sci,hindi));
     
-    return 0;
-}
+//     return 0;
+// }
 
-int calcultePer(int math,int sci,int hindi){
-    int aver = (math + sci + hindi) /3;
-    return aver;
-}
+// int calcultePer(int math,int sci,int hindi){
+//     int aver = (math + sci + hindi) /3;
+//     return aver;
+// }
 
 // void printHW(int count);
 
@@ -80,31 +80,31 @@ int calcultePer(int math,int sci,int hindi){
 
 // float convertTemp(float celsius);
 
-// int main (){
-//     float far = convertTemp(0);
-//     printf("far: %f",far);
-//     return 0;
+int main (){
+    float far = convertTemp(0);
+    printf("far: %f",far);
+    return 0;
 
-// }
+}
 
-// float convertTemp(float celsius ){
-//     float far = celsius * (9.0/5.0)+ 32;
-//     return far;
-// }
+float convertTemp(float celsius ){
+    float far = celsius * (9.0/5.0)+ 32;
+    return far;
+}
 
 //convert temperature fahrenheit to celsius
 
-// float convertFren(float frehan);
+float convertFren(float frehan);
 
-// int main(){
-//     float celcius = convertFren(8);
-//     printf("% f",celcius);
-//     return 0;
-// }
+int main(){
+    float celcius = convertFren(8);
+    printf("% f",celcius);
+    return 0;
+}
 
-// float convertFren(float frehan){
-//     float celsius = 5.0/9.0*(frehan-32);
-//     return celsius; 
-// }
+float convertFren(float frehan){
+    float celsius = 5.0/9.0*(frehan-32);
+    return celsius; 
+}
 
  
