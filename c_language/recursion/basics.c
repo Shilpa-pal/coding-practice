@@ -3,49 +3,49 @@
 
 // Function to calculate n factorial (using recursion)
 
-// function to print factorial of n
-// int factorial(int n);
-// int main()
-// {
-//     int n;
-//     printf("enter n : ");
-//     scanf("%d", &n);
-//     printf("factorial is : %d", factorial(n));
-//     return 0;
-// }
-// int factorial(int n)
-// {
-//     if (n == 0)
-//     {
-//         return 1;
-//     }
-//     int factnm1 = factorial(n - 1);
-//     int factn = factnm1 * n;
-//     return factn;
-// }
-
-// wrire  function to print n term of the fibonachi
-
-int fib(int n);
-
-int main(){
-    printf("%d",fib(5));
+//function to print factorial of n
+int factorial(int n);
+int main()
+{
+    int n;
+    printf("enter n : ");
+    scanf("%d", &n);
+    printf("factorial is : %d", factorial(n));
     return 0;
 }
-
-int fib(int n){
-    if(n==0){
-        return 0;
-    }
-    if(n==1){
+int factorial(int n)
+{
+    if (n == 0)
+    {
         return 1;
     }
-    int fibNm1=fib(n-1);
-    int fibNm2=fib(n-2);
-    int fibN= fibNm1 + fibNm2;
-    // printf("fib of %d is:%d\n",n,fibN);  by writting it it give repeated fibonacchi of each value 
-    return fibN;
+    int factnm1 = factorial(n - 1);
+    int factn = factnm1 * n;
+    return factn;
 }
+
+// wrire  function to print n term of the fibonacci
+
+// int fib(int n);
+
+// int main(){
+//     printf("%d",fib(5));
+//     return 0;
+// }
+
+// int fib(int n){
+//     if(n==0){
+//         return 0;
+//     }
+//     if(n==1){
+//         return 1;
+//     }
+//     int fibNm1=fib(n-1);
+//     int fibNm2=fib(n-2);
+//     int fibN= fibNm1 + fibNm2;
+//     // printf("fib of %d is:%d\n",n,fibN);  by writting it it give repeated fibonacchi of each value 
+//     return fibN;
+// }
 // calculate percentage Math, sci and hindi
 
 // int calcultePer(int math,int sci,int hindi);
