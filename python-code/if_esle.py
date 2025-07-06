@@ -1,4 +1,20 @@
 
+#Write a program to check whether the last elemnt of list
+list = [2,4,5,7,9]
+my_list = list[-1]
+if my_list % 2 == 0:
+     print(" it is even number")
+else:
+    print(" it is odd number")
+
+##Write a program to check whether the last digit of a number is even or odd.
+digit = 127
+last_digit = 10 % digit
+if last_digit % 2 == 0:
+     print(" it is even number")
+else:
+     print(" it is odd number")
+     
 #Take gender ("M" or "F") and age, print "Eligible" if:
 
 # Male ≥ 21
@@ -16,21 +32,21 @@
 # intermediate level question
 
 #Check if a number is perfect square using if.
-sequre = int(input("Enter a number is perfect square: "))
+# sequre = int(input("Enter a number is perfect square: "))
 
-if int(sequre ** 0.5)** 2 == sequre:
-    print(" it is perfect sequre.")
-else:
-    print(" it is not perfect sequre number. ")
+# if int(sequre ** 0.5)** 2 == sequre:
+#     print(" it is perfect sequre.")
+# else:
+#     print(" it is not perfect sequre number. ")
 
-#Check whether a number is one-digit, two-digit or more.
-n=int(input(" enter a number to check is one-digit, two-digit or more: "))
-if 0 <= n <= 9:
-    print(" it is one digit number.")
-elif 10 <= n <=99:
-    print(" it is 2 digit number.")
-else:
-    print(" it is more than 2 digit.")
+# #Check whether a number is one-digit, two-digit or more.
+# n=int(input(" enter a number to check is one-digit, two-digit or more: "))
+# if 0 <= n <= 9:
+#     print(" it is one digit number.")
+# elif 10 <= n <=99:
+#     print(" it is 2 digit number.")
+# else:
+#     print(" it is more than 2 digit.")
 
 # #Input a number and check if it's divisible by both 2 and 3.
 # divisible = int(input(" Enter a number to check divisible: "))
