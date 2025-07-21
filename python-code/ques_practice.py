@@ -44,3 +44,35 @@
 #     reverse = reverse * 10 + digit
 #     num = num// 10
 # print("reverse number is :",reverse)
+
+
+#Check Palindrome Number
+number = 121
+original = number 
+reverse = 0
+while number != 0:
+    digit_num= number % 10
+    reverse = reverse * 10 + digit_num
+    number = number // 10
+if original == reverse:
+    print(" palindrone")
+else:
+    print(" it is not palindrone")
+
+# cheak Palindrone of words 
+words = input("Enter a words:").lower()
+reversed_word = words[::-1]
+if words == reversed_word:
+    print(" Palindrome")
+else:
+    print(" Not Palindrome")
+
+# cheak sentences palindrone or not
+
+sentances = "A man a plan a canal Panama"
+cleaned = ''.join(char for char in sentances if char.isalnum())
+reversed_sentances=cleaned[::-1]
+if cleaned == reversed_sentances:
+    print("It is a palindrome sentence.")
+else:
+    print("It is not a palindrome sentence.")
