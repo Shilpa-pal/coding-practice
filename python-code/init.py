@@ -21,3 +21,8 @@ class circle:
 area=circle()
 area.setvalue(5)
 print(" area of circle is ",area.calculate())
+
+
+with open("data.txt",'r')as file:
+    for line in file:
+        print(line)
