@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+
 //  check number is odd and even
 int main(){
     int num;
@@ -20,62 +21,62 @@ int main(){
     return 0;
 }
  //write a program to check the given character is digit or not
-int main (){
-    char ch;
-    printf(" enter a char");
-    scanf(" %c",&ch);
-   ( ch>='0' && ch<='9')
-    ?printf("it is digit:%c\n",ch):printf(" it is not digit:%c\n",ch);
-    return 0;
-}
+// int main (){
+//     char ch;
+//     printf(" enter a char");
+//     scanf(" %c",&ch);
+//    ( ch>='0' && ch<='9')
+//     ?printf("it is digit:%c\n",ch):printf(" it is not digit:%c\n",ch);
+//     return 0;
+// }
 //if to else statement 
-int main (){
-    int age ;
-    printf(" Enter a age:");
-    scanf("%d",&age);
-    if (age>=18 && age<=100){
-        printf("He is adult:%d\n",age);
-    }else if (age<18 ){
-        printf("He is minor:%d\n",age);
-    }else{
-        printf(" invalid age\n ");
-    }
-    return 0;
-}
+// int main (){
+//     int age ;
+//     printf(" Enter a age:");
+//     scanf("%d",&age);
+//     if (age>=18 && age<=100){
+//         printf("He is adult:%d\n",age);
+//     }else if (age<18 ){
+//         printf("He is minor:%d\n",age);
+//     }else{
+//         printf(" invalid age\n ");
+//     }
+//     return 0;
+// }
 
 //write a program to cheak smallest number
-int main(){
-    int x,y;
-    printf("Enter  a 1st number:");
-    scanf("%d",&x);
-    printf("Enter  a 2nd number:");
-    scanf("%d",&y);
-    (x>y)
-        ?printf("Greter number is :%d\n",x)
-        :(y>x)
-        ?printf(" greater number is x:%d\n",y )
-        :printf(" both number are equal :%d\n",x);
+// int main(){
+//     int x,y;
+//     printf("Enter  a 1st number:");
+//     scanf("%d",&x);
+//     printf("Enter  a 2nd number:");
+//     scanf("%d",&y);
+//     (x>y)
+//         ?printf("Greter number is :%d\n",x)
+//         :(y>x)
+//         ?printf(" greater number is x:%d\n",y )
+//         :printf(" both number are equal :%d\n",x);
 
-    return 0;
-}
+//     return 0;
+// }
 
 //solving sam equestion via use if else
-int main(){
-    int x,y;
-    printf(" Enter a number:");
-    scanf("%d",&x);
-    printf(" Enter a number:");
-    scanf("%d",&y);
-    if (x>y){
-        printf("greater number is:%d\n",x);
-    }else if (y>x){
-        printf("greter number is :%d\n",y);
-    }else{
-        printf("number is equal:%d\n",x);
-    }
+// int main(){
+//     int x,y;
+//     printf(" Enter a number:");
+//     scanf("%d",&x);
+//     printf(" Enter a number:");
+//     scanf("%d",&y);
+//     if (x>y){
+//         printf("greater number is:%d\n",x);
+//     }else if (y>x){
+//         printf("greter number is :%d\n",y);
+//     }else{
+//         printf("number is equal:%d\n",x);
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
 
 //  main (){
 //     int a;
