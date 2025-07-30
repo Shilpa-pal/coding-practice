@@ -1,8 +1,8 @@
- int main(){
-//     int x;
-//     printf(" enter a number: ");
-//     scanf("%d",&x);
-//     printf("%d",x> 99 && x<1000);
-
+int main (){
+//     char ch;
+//     printf(" enter a char");
+//     scanf(" %c",&ch);
+//    ( ch>='0' && ch<='9')
+//     ?printf("it is digit:%c\n",ch):printf(" it is not digit:%c\n",ch);
 //     return 0;
-//  }
+// }
