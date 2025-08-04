@@ -169,3 +169,9 @@ if (num < 10 || num > 99) {
     }
 }
 
+// num = 5
+// if (num < 2){
+//     console.log(" It is prime number")
+// }else{
+//     console.log(" it is not prime number")
+// }
