@@ -1,5 +1,6 @@
-function checkpalindrome(num){
-    return num.toString() === num.toString().split('').reverse().join('')
-
-}
-console.log(checkpalindrome(121))
+result = isPrime(3);
+// console.log(result)
+// let userInput;
+// while (userInput !== 'exit') {
+//     userInput = prompt("Type 'exit' to quit:");
+// }
