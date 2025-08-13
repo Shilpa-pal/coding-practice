@@ -126,3 +126,4 @@ function ispalindrome(num){
 }
 output = ispalindrome(121);
 console.log(output)
+
