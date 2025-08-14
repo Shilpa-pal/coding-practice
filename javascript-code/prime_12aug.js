@@ -41,106 +41,153 @@
 
 // }
 
-//Print all prime numbers in a range (e.g., 1 to 100)......................
-function printPrimesInRange(start, end) {
-  for (let num = start; num < end; num++) {
-    if (isPrime(num)) {
-      console.log(num)
+// //Print all prime numbers in a range (e.g., 1 to 100)......................
+// function printPrimesInRange(start, end) {
+//   for (let num = start; num < end; num++) {
+//     if (isPrime(num)) {
+//       console.log(num)
+//     }
+//   }
+// }
+// function isPrime(n) {
+//   if (n <= 1) return false;
+//   for (let i = 2; i <= Math.sqrt(n); i++) {
+//     if (n % i === 0) return false;
+
+//   }
+//   return true
+
+// }
+// printPrimesInRange(1, 100)
+
+// // //Print all prime numbers in a range (e.g., 1 to 100) with skiping even number......................
+
+// function isItPrime(n) {
+//   if (n <= 1) return false;
+//   if (n === 2) return true;  // 2 is prime
+//   if (n % 2 === 0) return false; // it skip even numbers
+//   for (let i = 3; i <= Math.sqrt(n); i += 2) {  //check odd divisors only
+//     if (n % i === 0) return false;
+//   }
+//   return true;
+// }
+
+// function checkInRange(start, end) {
+//   for (let num = start; num <= end; num += 2) {
+//     if (isItPrime(num)) {
+//       console.log(num)
+//     }
+//   }
+
+// }
+// checkInRange(1, 20)
+// //amother aternative
+// function printPrimesInRange(start, end) {
+//   if (start <= 2 && end >= 2) console.log(2); // print 2 if in range
+
+//   // Start from the first odd number ≥ start
+//   let num = start % 2 === 0 ? start + 1 : start;
+
+//   for (; num <= end; num += 2) { // increment by 2 (skip evens)
+//     let isPrime = true;
+//     for (let i = 3; i <= Math.sqrt(num); i += 2) {
+//       if (num % i === 0) {
+//         isPrime = false;
+//         break;
+//       }
+//     }
+//     if (num > 2 && isPrime) console.log(num);
+//   }
+// }
+
+// printPrimesInRange(1, 20);
+
+
+
+// // checkig prime number in range just alternative way of write
+
+// function isPrimeNum(n) {
+//   if (n <= 1) return false
+//   for (let i = 2; i <= Math.sqrt(n); i++) {           // math.sqrt chexk till the root square
+//     if (n % i === 0) {
+//       return false
+//     }
+//   }
+//   return true;
+// }
+
+// function printPrimeNumInRange(start, end) {
+//   for (let num = start; num <= end; num++) {
+//     if (isPrimeNum(num)) {                   // called function if true it print the prime number
+//       console.log(num);
+//     }
+//   }
+// }
+// printPrimeNumInRange(1, 30)
+
+
+
+// // another way to check number in range but while use one function
+
+// function printIsPrimeNumber(start, end) {
+//   for (let num = start; num <= end; num++) {
+//     if (num > 1) {
+//       let isPrime = true // assume num is prime WE INITIALIZE
+//       for (let i = 2; i <= Math.sqrt(num); i++) {           // math.sqrt chexk till the root square
+//         if (num % i === 0) { // found a divisor
+//           isPrime = false;  // change assumption
+//           break;  // no need to check more
+//         }
+//       }
+//       if (isPrime) console.log(num);   // only print if still true
+//     }
+//   }
+// }
+// printIsPrimeNumber(1, 10)
+
+
+//Universal Range Problem Template 
+// below is Genric finder function made 
+function findRange(start, end, conditionFn) {
+  let output = "";//store all matching numbers here
+  for (let num = start; num <= end; num++) {              
+    if (conditionFn(num)) {
+      output += num + " ";    //append with space
     }
   }
+  console.log(output.trim()); // print once, remove last space
 }
-function isPrime(n) {
-  if (n <= 1) return false;
-  for (let i = 2; i <= Math.sqrt(n); i++) {
-    if (n % i === 0) return false;
 
-  }
-  return true
-
+function isEven(n) {
+  return n % 2 === 0;
 }
-printPrimesInRange(1, 100)
+findRange(1, 20, isEven);
 
-// //Print all prime numbers in a range (e.g., 1 to 100) with skiping even number......................
-
-function isItPrime(n) {
-  if (n <= 1) return false;
-  if (n === 2) return true;  // 2 is prime
-  if (n % 2 === 0) return false; // it skip even numbers
-  for (let i = 3; i <= Math.sqrt(n); i += 2) {  //check odd divisors only
-    if (n % i === 0) return false;
+function isPrime(number) {
+  if (number <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) return false
   }
   return true;
 }
+findRange(1, 10, isPrime)
 
-function checkInRange(start, end) {
-  for (let num = start; num <= end; num += 2) {
-    if (isItPrime(num)) {
-      console.log(num)
-    }
+function isPalindrome(no) {
+  let original = no;
+  let reversed = 0;
+  while (no > 0) {
+    digit = no % 10    // to get last digit 
+    reversed = reversed * 10 + digit;
+    no = Math.floor(no / 10)   // to remove last digit 
   }
+  return original === reversed
 
 }
-checkInRange(1, 20)
-//amother aternative
-function printPrimesInRange(start, end) {
-  if (start <= 2 && end >= 2) console.log(2); // print 2 if in range
+findRange(1, 200, isPalindrome)
 
-  // Start from the first odd number ≥ start
-  let num = start % 2 === 0 ? start + 1 : start;
-
-  for (; num <= end; num += 2) { // increment by 2 (skip evens)
-    let isPrime = true;
-    for (let i = 3; i <= Math.sqrt(num); i += 2) {
-      if (num % i === 0) {
-        isPrime = false;
-        break;
-      }
-    }
-    if (num > 2 && isPrime) console.log(num);
-  }
+function isPalindromeForString(w) {
+  let str = String(w)
+  return str === str.split('').reverse().join('');
 }
-
-printPrimesInRange(1, 20);
-
-
-
-// checkig prime number in range just alternative way of write
-
-function isPrimeNum(n) {
-  if (n <= 1) return false
-  for (let i = 2; i <= Math.sqrt(n); i++) {           // math.sqrt chexk till the root square
-    if (n % i === 0) {
-      return false
-    }
-  }
-  return true;
-}
-
-function printPrimeNumInRange(start, end) {
-  for (let num = start; num <= end; num++) {
-    if (isPrimeNum(num)) {                   // called function if true it print the prime number
-      console.log(num);
-    }
-  }
-}
-printPrimeNumInRange(1, 30)
-
-
-
-// another way to check number in range but while use one function
-
-function printIsPrimeNumber(start, end) {
-  for (let num = start; num <= end; num++) {
-    if (num > 1) {
-      let isPrime = true // assume num is prime WE INITIALIZE
-      for (let i = 2; i <= Math.sqrt(num); i++) {           // math.sqrt chexk till the root square
-        if (num % i === 0) { // found a divisor
-          isPrime =  false;  // change assumption
-          break;  // no need to check more
-        } 
-      }
-      if (isPrime) console.log(num);   // only print if still true
-    }  
-  }
-}
-printIsPrimeNumber(1,10)
+console.log("palinidrome")
+findRange(1, 100, isPalindromeForString)
