@@ -104,7 +104,7 @@ function isharshad(num) {
     }
     return num % sum === 0
 }
-console.log( isharshad(15))
+console.log(isharshad(15))
 
 // // 2.  check if it is Abundant Number
 //A number is abundant if the sum of its proper divisors (excluding itself) is greater than the number.
@@ -126,7 +126,7 @@ console.log("isAbundant", isAbundantNum(12))
 
 function isdeficientNum(num) {
     let sumnum = 0
-    for (let i = 1; i <= num/2; i++) {
+    for (let i = 1; i <= num / 2; i++) {
         if (num % i === 0) sumnum += i;
     }
     return sumnum < num
@@ -138,13 +138,32 @@ console.log("isdeficientNum", isdeficientNum(12))
 //Divisors of 12 → 1, 2, 3, 4, 6, 12 , Proper divisors = 1 + 2 + 3 + 4 + 6 = 16
 // 16 ≠ 12, so 12 is NOT a Perfect Number (it’s Abundant because 16 > 12).
 
-function isPerfectNum(num){
+function isPerfectNum(num) {
     let sumnum = 0
-    for(let i = 1;i<=num/2;i++){
-        if (num % i === 0) sumnum+=i;
+    for (let i = 1; i <= num / 2; i++) {
+        if (num % i === 0) sumnum += i;
     }
     return sumnum === num   //true if Perfect Number
 }
-console.log("perfect number",isPerfectNum(6))
-console.log("perfect number",isPerfectNum(28))
-console.log("perfect number",isPerfectNum(12))
+console.log("perfect number", isPerfectNum(6))
+console.log("perfect number", isPerfectNum(28))
+console.log("perfect number", isPerfectNum(12))
+
+// twinPrime number
+function isprime(n) {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false
+    }
+    return true;
+}
+// function for twin primes
+function isTwinPrime(num1, num2) {
+    return isprime(num1) && isprime(num2) && Math.abs(num1 - num2) === 2;
+}
+console.log("TwinPrimenumber", isTwinPrime(3, 5))
+console.log("TwinPrimenumber", isTwinPrime(7, 5))
+console.log("TwinPrimenumber", isTwinPrime(17, 19))
+
+
+
