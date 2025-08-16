@@ -62,7 +62,7 @@ function isPalindrome(original) {
     let opposite = 0
     while (opp > 0) {
         let di = opp % 10       // get last digit 
-        opposite = opposite * 10 + di;  
+        opposite = opposite * 10 + di;
         opp = Math.floor(opp / 10)   // remove last digit 
     }
     return opposite === original;   // compare reversed with original
@@ -73,22 +73,78 @@ console.log(isPalindrome(121))
 
 // isarmstrong number
 
-function isArmstrong(n){
+function isArmstrong(n) {
     let copy = n;
     let sum = 0;
 
     count = n.toString().length   // count the digit
 
-//// Calculate sum of digits raised to power 'count'
-    while(copy > 0){
+    //// Calculate sum of digits raised to power 'count'
+    while (copy > 0) {
         let digit = copy % 10;
-        sum += Math.pow(digit,count);
-        copy = Math.floor(copy/10);
+        sum += Math.pow(digit, count);
+        copy = Math.floor(copy / 10);
 
     }
-    return sum === n ;
+    return sum === n;
 
 }
 console.log(isArmstrong(153)); // true
 console.log(isArmstrong(9474)); // true
 console.log(isArmstrong(123));
+
+// number isharshad (number that is divisible by the sum of its digits.)
+//Example: 18 ÷ (1+8=9) = 2 → Harshad.
+function isharshad(num) {
+    let ti = num;     // copy of number
+    let sum = 0;     // it store the sum value
+    while (ti > 0) {             // until ti is greater than 0 run the loop 
+        sum += ti % 10;        //temp % 10 extracts the last digit of temp.2)sum += ... means “add that last digit to sum”.  
+        ti = Math.floor(ti / 10)  // remove the last digi 
+    }
+    return num % sum === 0
+}
+console.log( isharshad(15))
+
+// // 2.  check if it is Abundant Number
+//A number is abundant if the sum of its proper divisors (excluding itself) is greater than the number.
+//Ee.12 → divisors are 1, 2, 3, 4, 6 → sum = 16 > 12 ✅ abundant.
+
+function isAbundantNum(num) {
+    let sum = 0
+    // i = 1 used because 0 is invalid as a divisor. 
+    for (let i = 1; i <= num / 2; i++) {      // here it divide by two becuse the number itself should not in consider in divisor 
+        if (num % i === 0) sum += i;  // and sum like above
+        // (num % i === 0)  i is number of loop 1,2,3,4 it checks if 12 % 1,12 %2 ,so on if reminder is 0 than only sum += i index get add
+    }
+    return sum > num;  // if this  condition true than it is abundant number
+
+}
+console.log("isAbundant", isAbundantNum(12))
+
+// isdeficientNum 
+
+function isdeficientNum(num) {
+    let sumnum = 0
+    for (let i = 1; i <= num/2; i++) {
+        if (num % i === 0) sumnum += i;
+    }
+    return sumnum < num
+}
+console.log("isdeficientNum", isdeficientNum(12))
+
+
+// is perfect number
+//Divisors of 12 → 1, 2, 3, 4, 6, 12 , Proper divisors = 1 + 2 + 3 + 4 + 6 = 16
+// 16 ≠ 12, so 12 is NOT a Perfect Number (it’s Abundant because 16 > 12).
+
+function isPerfectNum(num){
+    let sumnum = 0
+    for(let i = 1;i<=num/2;i++){
+        if (num % i === 0) sumnum+=i;
+    }
+    return sumnum === num   //true if Perfect Number
+}
+console.log("perfect number",isPerfectNum(6))
+console.log("perfect number",isPerfectNum(28))
+console.log("perfect number",isPerfectNum(12))
