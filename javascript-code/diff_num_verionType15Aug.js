@@ -166,4 +166,25 @@ console.log("TwinPrimenumber", isTwinPrime(7, 5))
 console.log("TwinPrimenumber", isTwinPrime(17, 19))
 
 
+//A number whose square ends with the same digits as the number itself.
+//Example: 25² = 625 → ends with 25 ✅
 
+
+function automorphic(num){
+    let sequre = (num ** 2).toString();
+    return sequre.endsWith(num.toString())
+}
+console.log(automorphic(625))
+
+// another way to write same question
+// We write num.toString after .endsWith because:
+// .endsWith() needs a string argument.
+// Without converting num to string, the comparison would fail (string vs number).
+// It ensures "625".endsWith("25") works correctly.
+
+function isAutomorphic(Num){
+    let sequre = Num * Num
+    return sequre.toString().endsWith(Num.toString())  
+}
+console.log(isAutomorphic(25))
+console.log(isAutomorphic(7))
