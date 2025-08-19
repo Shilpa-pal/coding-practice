@@ -1,15 +1,24 @@
-// twinPrime number
-function isprime(n) {
-    if (n < 2) return false;
-    for (let i = 2; i <= Math.sqrt(n); i++) {
-        if (n % i === 0) return false
+function pattern7(n) {
+    for (let i = 0; i < n; i++) {
+        let row = "";
+
+        // spaces (before stars)
+        for (let j = 0; j < n - i - 1; j++) {
+            row += " ";
+        }
+
+        // stars
+        for (let j = 0; j < 2 * i + 1; j++) {
+            row += "*";
+        }
+
+        // spaces (optional, for symmetry)
+        // for (let j = 0; j < n - i - 1; j++) {
+        //     row += " ";
+        // }
+
+        console.log(row);
     }
-    return true;
 }
-// function for twin primes
-function isTwinPrime(num1, num2) {
-    return isprime(num1) && isprime(num2) && Math.abs(num1 - num2 === 2);
-}
-console.log("TwinPrimenumber", isTwinPrime(3, 5))
-console.log("TwinPrimenumber", isTwinPrime(7, 5))
-console.log("TwinPrimenumber", isTwinPrime(17, 19))
+
+pattern7(5);
