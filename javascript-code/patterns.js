@@ -157,3 +157,127 @@ function pattern7(n) {
 }
 
 pattern7(5);
+
+//pattern8 Diamod shape i start with i=1
+
+function pattern8(n) {
+    // top half
+    for (let i = 1; i <= n; i++) {
+        let row = "";
+        // spaces
+        for (let j = 1; j <= n - i; j++) {
+            row += " ";
+        }
+        // stars
+        for (let k = 1; k <= 2 * i - 1; k++) {
+            row += "*"
+        }
+        console.log(row)
+    }
+    // Bottom half
+    for (let i = n - 1; i >= 1; i--) {
+        let row = "";
+        // spaces
+        for (let j = 1; j <= n - i; j++) {
+            row += " ";
+            // stars
+        } for (let k = 1; k <= 2 * i - 1; k++) {  // how many stars (*) to print in row i.
+            row += "*"
+        }
+        console.log(row)
+    }
+
+}
+pattern8(4)
+
+
+// pattern bottom of diamond
+function bottomHalf(n) {
+    for (let i = n - 1; i >= 1; i--) {
+        let row = "";
+
+        // spaces
+        for (let j = 0; j < n - i; j++) {
+            row += " ";
+        }
+
+        // stars
+        for (let j = 0; j < 2 * i - 1; j++) {  //  2 * i - 1 it is used to n0t repeat 2n-1 line mean .[2(4)-1] = 13 so widest row is 7
+            row += "*";
+        }
+
+        console.log(row);
+    }
+}
+
+bottomHalf(4);
+
+// here I  start(intialize) with i = 0 
+function diamondFull(n) {
+    for (let i = 0; i < n; i++) {
+        let row = "";
+        // space (n - i - 1) it used when i = 0 only 
+        for (let j = 0; j < n - i - 1; j++) {
+            row += " ";
+        }
+        // stars (2 * i + 1) it used when i = 0 means when i intialize with 0
+        for (let j = 0; j < 2 * i + 1; j++) {
+            row += "*";
+        }
+        console.log(row)
+    }
+    // bottom of the daimond part take a note that there should be no repeat of line 
+    for (let i = n - 1; i >= 1; i--) {
+        let row = "";
+        // space here bottom i used n- 1 so it wil prevent from reapting the line
+        for (let j = 0; j < n - i; j++) {
+            row += " ";
+        }
+        //stars -this also (2 * i - 1) prevent to print extra line of stars
+        // if we have intialize reverse diamond with i= n- 2 than we don't have need to 
+        // write above  this n - i and  below (2 * i - 1) we can keep same as top part of diamond 
+        //like  this n - i - 1 th and (2 * i + 1)
+        for (let j = 0; j < 2 * i - 1; j++) {
+            row += "*";
+
+        }
+        console.log(row)
+    }
+}
+diamondFull(4)
+
+// //I am writing this code when i intializeing the bottom of diamond with 
+// Top half → i < n (not <= n)
+// Bottom half → start from i = n-2 (to avoid repeating the widest row)
+function diamondFull(n) {
+    // Top half
+    for (let i = 0; i < n; i++) {
+        let row = "";
+        // spaces
+        for (let j = 0; j < n - i - 1; j++) {
+            row += " ";
+        }
+        // stars
+        for (let j = 0; j < 2 * i + 1; j++) {
+            row += "*";
+        }
+        console.log(row);
+    }
+
+    // Bottom half
+    for (let i = n - 2; i >= 0; i--) {
+        let row = "";
+        // spaces
+        for (let j = 0; j < n - i - 1; j++) {
+            row += " ";
+        }
+        // stars
+        for (let j = 0; j < 2 * i + 1; j++) {
+            row += "*";
+        }
+        console.log(row);
+    }
+}
+
+diamondFull(4);
+
