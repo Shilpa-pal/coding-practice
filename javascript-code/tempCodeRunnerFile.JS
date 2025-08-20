@@ -1,28 +1,14 @@
-function diamondFull(n) {
+function printPattern(n) {
     for (let i = 0; i < n; i++) {
-        let row = "";
-        // space 
-        for (let j = 0; j < n - i - 1; j++) {
-            row += " ";
-        }
-        // stars 
-        for (let j = 0; j < 2 * i + 1; j++) {
-            row += "*";
-        }
-        console.log(row)
-    }
-    for (let i = n - 1; i >= 1; i--) {
-        let row = "";
-        // space
-        for (let j = 0; j < n - i; j++) {
-            row += " ";
-        }
-        //stars
-        for (let j = 0; j < 2 * i - 1; j++) {
-            row += "*";
+        let start = (i % 2 === 0) ? 1 : 0;
 
+        for (let j = 0; j <= i; j++) {
+            process.stdout.write(start.toString());  // print without newline
+            start = 1 - start;
         }
-        console.log(row)
+
+        console.log(); // move to next line
     }
 }
-diamondFull(4)
+
+printPattern(5);

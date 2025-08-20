@@ -281,3 +281,122 @@ function diamondFull(n) {
 
 diamondFull(4);
 
+
+// write half diamond
+function pattern9(n) {
+    // Top half
+    for (let i = 0; i < n; i++) {
+        let row = " ";
+        // stars
+        for (let j = 0; j < 2 * i + 1; j++) {
+            row += "*";
+        }
+        console.log(row);
+    }
+
+    // Bottom half
+    for (let i = n - 1; i >= 1; i--) {
+        let row = " ";
+        // stars
+        for (let j = 0; j < 2 * i - 1; j++) {
+            row += "*";
+        }
+        console.log(row);
+    }
+}
+pattern9(n)
+
+function pattern10(n) {
+    // Top half
+    for (let i = 0; i < n; i++) {
+        let row = " ";
+        // stars
+        for (let j = 0; j < 2 * i + 1; j++) {
+            row += "*";
+        }
+        console.log(row);
+    }
+    for (let i = n - 1; i >= 1; i--) {
+        let row = " ";
+
+    }
+    // stars
+    for (let j = 0; j < 2 * i - 1; j++) {  //  2 * i - 1 it is used to not repeat 2n-1 line mean .[2(4)-1] = 13 so widest row is 7
+        row += "*";
+    }
+
+    console.log(row);
+}
+pattern9(10)
+
+//pattern 11
+// 1
+// 01
+// 101
+// 0101
+// 10101
+// 010101
+
+function pattern10(n) {
+    for (let i = 1; i <= n; i++) {
+        let row = "";
+        for (let j = 1; j <= i; j++) {
+            if (i % 2 === 1) {
+                row += (j % 2 === 1) ? "1" : "0";
+            } else {
+                row += (j % 2 === 1) ? "0" : "1";
+            }
+        }
+        console.log(row)
+    }
+}
+pattern10(6)
+
+
+//alternative way of do it 
+function patternn10(n) {
+    for (let i = 1; i <= n; i++) {
+        let row = "";
+        for (let j = 1; j <= i; j++) {
+            row += (i + j) % 2   // here is magic formula  
+            // If (i + j) is even → % 2 = 0
+            //If (i + j) is odd → % 2 = 1
+        }
+        console.log(row)
+    }
+
+}
+patternn10(6)
+
+// alternate of above 
+function printPatternAlter(n) {
+    for (let i = 0; i < n; i++) {
+        let start = (i % 2 === 0) ? 1 : 0;  // row starts with 1 if even row, else 0 and from here we get value of start 
+        let row = "";
+
+        for (let j = 0; j <= i; j++) {
+            row += start;
+            start = 1 - start;  // flip 1 <-> 0
+        }
+
+        console.log(row);
+    }
+}
+
+printPatternAlter(5);
+
+// it print without using row = ""(spaace ) and row+=start
+function printPattern(n) {
+    for (let i = 0; i < n; i++) {
+        let start = (i % 2 === 0) ? 1 : 0;
+
+        for (let j = 0; j <= i; j++) {
+            process.stdout.write(start.toString());  // print without newline
+            start = 1 - start;
+        }
+
+        console.log(); // move to next line
+    }
+}
+
+printPattern(5);
