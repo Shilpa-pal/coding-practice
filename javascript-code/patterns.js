@@ -329,7 +329,7 @@ function pattern10(n) {
 }
 pattern9(10)
 
-//pattern 11
+//pattern 11  binary pattern
 // 1
 // 01
 // 101
@@ -353,7 +353,7 @@ function pattern10(n) {
 pattern10(6)
 
 
-//alternative way of do it 
+//alternative way of do it  binary pattern
 function patternn10(n) {
     for (let i = 1; i <= n; i++) {
         let row = "";
@@ -400,3 +400,130 @@ function printPattern(n) {
 }
 
 printPattern(5);
+
+// pattern12
+
+ //1          1
+// 12        21
+// 12       321
+// 1234    4321
+// 12345  54321
+// 123456654321
+
+function pattern12(n){
+    for(let i = 1;i<=n;i++){
+        let row = "";
+        //number  Left numbers (1 to i)
+        for(let j = 1;j<=i;j++){
+            row+=j
+        }
+        // space (2*(n-i))
+        for(let j= 1;j<=2*(n-i);j++){
+            row += " ";
+        }
+        
+        //number (i to 1) reverse
+        for(let j = i;j>=1;j--){
+            row += j
+    }
+    console.log(row)
+}
+}
+pattern12(6)
+
+//alternate above
+function patternAlter12(n){
+    space = 2*(n-1)
+    for(let i = 1;i<=n;i++){
+        let row = "";
+        //number  Left numbers (1 to i)
+        for(let j = 1;j<=i;j++){
+            row+=j
+        }
+        // space (2*(n-i))
+        for(let j= 1;j<=space;j++){
+            row += " ";
+        }
+        
+        //number (i to 1) reverse
+        for(let j = i;j>=1;j--){
+            row += j
+    }
+    space-=2 //On each next row, the "gap" in the middle gets smaller by 2 spaces.
+    console.log(row)
+}
+}
+patternAlter12(6)
+// pattern13
+// 1
+// 2 3
+// 4 5 6
+// 7 8 9 10
+// 11 12 13 14 15
+// 16 17 18 19 20 21
+function floydsTriangle(n) {
+    let num = 1; // start from 1
+    for (let i = 1; i <= n; i++) {
+        let row = "";
+        for (let j = 1; j <= i; j++) {
+            row += num + " ";
+            num++; // increase number each time
+        }
+        console.log(row.trim());
+    }
+}
+
+floydsTriangle(6);
+
+//pattern14
+// A
+// A B
+// A B C
+// A B C D
+// A B C D E
+// A B C D E F
+function pattern14(n){
+    for(let i = 0;i<=n;i++){
+        let row = " "
+        for(let j = 0;j<=i ;j++){
+            row +=  String.fromCharCode(65 + j) + " ";  // converts numbers to letters:
+
+// 65 = A, 66 = B, 67 = C …
+        }
+        console.log(row)
+    }
+}
+pattern14(6)
+// alterante 14
+function patternAlter14(n) {
+    let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";  
+    for (let i = 0; i < n; i++) {
+        let row = "";
+        for (let j = 0; j <= i; j++) {
+            //ow 1 (i=0) → j=0 → take alphabet[0] = 'A'
+
+           //Row 2 (i=1) → j=0,1 → take 'A' 'B' so on 
+            row += alphabet[j] + " ";
+        }
+        console.log(row.trim());
+    }
+}
+
+patternAlter14(6);
+
+//A B C D E F
+// A B C D E 
+// A B C D
+// A B C
+// A B
+// A
+function pattern15(n){
+    for(let i = n;i>=1;i--){
+        let row = " ";
+        for(let j=0;j<i ;j++){
+            row +=  String.fromCharCode(65 + j) + " ";  // converts numbers to letters: // 65 = A, 66 = B, 67 = C …
+        }
+        console.log(row.trim());
+    }
+}        
+pattern15(6)

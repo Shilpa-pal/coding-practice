@@ -1,14 +1,10 @@
-function printPattern(n) {
-    for (let i = 0; i < n; i++) {
-        let start = (i % 2 === 0) ? 1 : 0;
-
-        for (let j = 0; j <= i; j++) {
-            process.stdout.write(start.toString());  // print without newline
-            start = 1 - start;
+function pattern15(n){
+    for(let i = n;i>=1;i--){
+        let row = " ";
+        for(let j=0;j<i ;j++){
+            row +=  String.fromCharCode(65 + j) + " ";  // converts numbers to letters: // 65 = A, 66 = B, 67 = C …
         }
-
-        console.log(); // move to next line
+        console.log(row.trim());
     }
-}
-
-printPattern(5);
+}        
+pattern15(6)
