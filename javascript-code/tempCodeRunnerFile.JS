@@ -1,10 +1,44 @@
-function pattern15(n){
-    for(let i = n;i>=1;i--){
-        let row = " ";
-        for(let j=0;j<i ;j++){
-            row +=  String.fromCharCode(65 + j) + " ";  // converts numbers to letters: // 65 = A, 66 = B, 67 = C …
+function pattern19(n) {
+    // to part of pattern 
+    let spaceIs = 0;
+    for (let i = 0; i < n; i++) {
+        let row = "";
+        // stars
+        for (let j = 1; j <= n - i; j++) {
+            row += "*"
         }
-        console.log(row.trim());
+
+        // spaces 
+        for (let j = 0; j < spaceIs; j++) {
+            row += " "
+        }
+        // stars
+        for (let j = 1; j <= n - i; j++) {
+            row += "*"
+        }
+        spaceIs += 2
+        console.log(row)
     }
-}        
-pattern15(6)
+    //bottom part of pattern
+    spaceIs = 2 * n - 2;
+    for (let i = 1; i <= n; i++) {
+        let row = "";
+        // stars
+        for (let j = 1; j <= i; j++) {
+            row += "*"
+        }
+
+        // spaces 
+        for (let j = 0; j < spaceIs; j++) {
+            row += " "
+        }
+        // stars
+        for (let j = 1; j <= i; j++) {
+            row += "*"
+        }
+        spaceIs -= 2
+        console.log(row)
+    }
+
+}
+pattern19(5)
