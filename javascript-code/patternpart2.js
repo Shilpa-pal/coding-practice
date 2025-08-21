@@ -129,16 +129,16 @@ function pattern19(n) {
      // Start from i = 0 because the first row is "full stars"
     for (let i = 0; i < n; i++) {
         let row = "";
-        // stars
+        // // Left stars → decreases as i increases
         for (let j = 1; j <= n - i; j++) {
             row += "*"
         }
 
-        // spaces 
+        // Middle spaces → decreases as i increases
         for (let j = 0; j < spaceIs; j++) {
             row += " "
         }
-        // stars
+        //  Right stars → same as left stars
         for (let j = 1; j <= n - i; j++) {
             row += "*"
         }
@@ -154,16 +154,16 @@ function pattern19(n) {
     // was already printed by the top half.
     for (let i = 1; i <= n; i++) {   // we i = 1 write becuse
         let row = "";
-        // stars
+        // Left stars → increases as i increases
         for (let j = 1; j <= i; j++) {
             row += "*"
         }
 
-        // spaces 
+        // Middle spaces → decreases as i increases
         for (let j = 0; j < spaceIs; j++) {
             row += " "
         }
-        // stars
+        // // Right stars → same as left stars
         for (let j = 1; j <= i; j++) {
             row += "*"
         }
