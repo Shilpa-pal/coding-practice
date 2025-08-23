@@ -126,7 +126,7 @@ patternAlter18(5);
 function pattern19(n) {
     // Top Half of Pattern
     let spaceIs = 0; // spaces start at 0 (no gap in the very first row)
-     // Start from i = 0 because the first row is "full stars"
+    // Start from i = 0 because the first row is "full stars"
     for (let i = 0; i < n; i++) {
         let row = "";
         // // Left stars → decreases as i increases
@@ -142,7 +142,7 @@ function pattern19(n) {
         for (let j = 1; j <= n - i; j++) {
             row += "*"
         }
-         // Increase space count for next row (since stars shrink)
+        // Increase space count for next row (since stars shrink)
         spaceIs += 2
         console.log(row)
     }
@@ -179,58 +179,162 @@ pattern19(5)
 
 // alternative ----------------------------------------------------------------------------------------------
 function newHollowHourglass(n) {
-  let pattern = "";
+    let pattern = "";
 
-  // 1. Top Border
-  for (let i = 0; i < 2 * n; i++) {
-    pattern += "*";
-  }
-  pattern += "\n";
-
-  // 2. Upper Half (shrinking)
-  // Loop i from 1 to n-1
-  for (let i = 1; i < n; i++) {
-    // Left stars: n - i
-    for (let j = 0; j < n - i; j++) {
-      pattern += "*";
-    }
-    // Middle spaces: 2 * i - 1
-    for (let j = 0; j < 2 * i - 1; j++) {
-      pattern += " ";
-    }
-    // Right stars: n - i
-    for (let j = 0; j < n - i; j++) {
-      pattern += "*";
+    // 1. Top Border
+    for (let i = 0; i < 2 * n; i++) {
+        pattern += "*";
     }
     pattern += "\n";
-  }
 
-  // 3. Lower Half (growing)
-  // Loop i downwards from n-1 to 1 to create the mirror
-  for (let i = n - 1; i >= 1; i--) {
-    // Left stars: n - i
-    for (let j = 0; j < n - i; j++) {
-      pattern += "*";
+    // 2. Upper Half (shrinking)
+    // Loop i from 1 to n-1
+    for (let i = 1; i < n; i++) {
+        // Left stars: n - i
+        for (let j = 0; j < n - i; j++) {
+            pattern += "*";
+        }
+        // Middle spaces: 2 * i - 1
+        for (let j = 0; j < 2 * i - 1; j++) {
+            pattern += " ";
+        }
+        // Right stars: n - i
+        for (let j = 0; j < n - i; j++) {
+            pattern += "*";
+        }
+        pattern += "\n";
     }
-    // Middle spaces: 2 * i - 1
-    for (let j = 0; j < 2 * i - 1; j++) {
-      pattern += " ";
+
+    // 3. Lower Half (growing)
+    // Loop i downwards from n-1 to 1 to create the mirror
+    for (let i = n - 1; i >= 1; i--) {
+        // Left stars: n - i
+        for (let j = 0; j < n - i; j++) {
+            pattern += "*";
+        }
+        // Middle spaces: 2 * i - 1
+        for (let j = 0; j < 2 * i - 1; j++) {
+            pattern += " ";
+        }
+        // Right stars: n - i
+        for (let j = 0; j < n - i; j++) {
+            pattern += "*";
+        }
+        pattern += "\n";
     }
-    // Right stars: n - i
-    for (let j = 0; j < n - i; j++) {
-      pattern += "*";
+
+    // 4. Bottom Border
+    for (let i = 0; i < 2 * n; i++) {
+        pattern += "*";
     }
     pattern += "\n";
-  }
 
-  // 4. Bottom Border
-  for (let i = 0; i < 2 * n; i++) {
-    pattern += "*";
-  }
-  pattern += "\n";
-
-  console.log(pattern);
+    console.log(pattern);
 }
 
 // Call the function with n=5 to match your image
 newHollowHourglass(5);
+
+
+// pattern20
+
+// *          *
+// **        **
+// ***      ***
+// ****    ****
+// *****  *****
+// ************
+// *****  *****
+// ****    ****
+// ***      ***
+// **        **
+// *          *
+//Left stars → always = row number (i)
+// Middle spaces → always = 2 * (n - i)
+// Rht stars → always = row number (i)
+//formula = Row = (i stars) + (2*(n-i) spaces) + (i stars)
+
+
+function pattern20(n) {
+    for (let i = 1; i <= n; i++) {
+        let row = "";
+
+        // left stars
+        for (let j = 1; j <= i; j++) {
+            row += "*"
+        }
+
+        // space between stars
+        for (j = 1; j <= 2 * (n - i); j++) {
+            row += " ";
+        }
+
+        // right stars
+        for (let j = 1; j <= i; j++) {
+            row += "*"
+        }
+        console.log(row)
+    }
+    // 🔽 Bottom half
+    for (let i = n - 1; i >= 1; i--) {
+        let row = "";
+
+        // Left stars → i stars
+        for (let j = 1; j <= i; j++) {
+            row += "*";
+        }
+
+        // Spaces in the middle → (2 * (n - i)) it (grows as i decreases)
+        for (let j = 1; j <= 2 * (n - i); j++) {
+            row += " ";
+        }
+
+        // Right stars → i stars
+        for (let j = 1; j <= i; j++) {
+            row += "*";
+        }
+
+        console.log(row);
+    }
+}
+
+// alternative of above
+
+
+
+
+
+pattern20(6)
+
+ //******
+// *    *
+// *    *
+// *    *
+// *    *
+// ******
+//hollowRectangle
+function pattern21(rows, cols) {
+    for (let i = 1; i <= rows; i++) {     // outer loop → rows
+        let row = "";
+
+        for (let j = 1; j <= cols; j++) { // inner loop → columns
+            // IF condition to decide where to put * and where to put space
+            //  // Print * in first row, last row, first col, or last col
+            if (i === 1 || i === rows || j === 1 || j === cols) {
+                row += "*";  // border (first row, last row, first col, last col)
+            } else {
+                row += " ";  // inside (not border → so keep empty)
+            }
+        }
+
+        console.log(row); // print each row
+    }
+}
+
+pattern21(6, 6);
+
+//3 3 3 3 3 
+// 3 2 2 2 3 
+// 3 2 1 2 3 
+// 3 2 2 2 3 
+// 3 3 3 3 3
