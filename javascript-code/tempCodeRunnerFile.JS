@@ -1,6 +1,6 @@
-function printString(i,n){ // starting point and n times
-    if(i>n) return 
-    console.log(i)
-    printString(i - 1,n)
+function priString(str,times){
+    if (times === 0 )return 
+    console.log(str)
+    priString(str,times-1)
 }
-printString("Neha",3)
+priString("Shilpa",6)

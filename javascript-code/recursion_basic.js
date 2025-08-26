@@ -105,3 +105,47 @@ function printNToOne(i) {
     printNToOne(i - 1);
 }
 printNToOne(5);     // needs only start (5), limit is implicit
+
+
+
+// print char of string using recursion 
+//method.1 of base case
+function priString(str,times){
+    if (times === 0 )return 
+    console.log(str)
+    priString(str,times-1)
+}
+priString("Shilpa",6)
+//method.2 of base case
+function printStr(str,i,n){
+    if(i>=n)return
+    console.log(str)
+    printStr(str,i+1,n)
+}
+printStr("Shilpa",0,3)
+
+//method.3 of base case
+function printS(str){
+    if(str.length === 0) 
+        console.log("SHilpa")
+    printS(str.slice(1))  // it get decrese by one ,on each call
+
+}
+printS("#####") // number of hashtag = number of shilpa gets print
+
+//method.4 of base case
+function printS(str, index) {
+    if (index === str.length) return;   // base case: stop when index reaches length
+    console.log("Shilpa");              // print once
+    printS(str, index + 1);             // move to the next index
+}
+printS("#####", 0);   // start with index = 0
+
+//method.5 of base case
+function printEAchWord(str){
+    if(str.length === 0) return
+    console.log(str[0])
+    printEAchWord(str.slice(1))
+}
+printEAchWord("Hello")
+
