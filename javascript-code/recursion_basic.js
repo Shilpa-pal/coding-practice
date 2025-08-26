@@ -9,6 +9,13 @@ function printNum(n) {
 }
 printNum(4)
 
+//Aternate method of above
+function printWord(n){
+    if(n === 0) return
+    console.log("Rahul")
+    printWord(n -1)
+}
+printWord(5)
 
 // factorial 
 function factorial(n) {
@@ -26,14 +33,50 @@ function sum(n) {
 
 }
 console.log(sum(4))
+function printNToOne(i) {
+    if (i < 1) return;
+
+    console.log(i);
+    printNToOne(i - 1);
+}
+
+printNToOne(4); // Output: 4 3 2 1
+
+// another (forward recursion)..............................
+function printOneToN(i, n) {
+    if (i > n) return;  
+    console.log(i);    
+    printOneToN(i + 1, n);  // move forward
+}
+printOneToN(0,5)
+
+//(backward recursion)......................................
+function printNToOne(i) {
+    if (i < 1) return;  
+    console.log(i);    
+    printNToOne(i - 1); // move backward
+}
+printNToOne(5)
+//////////////////////////////////////////////////////////////////////////////////
+function backward(n) {
+  if (n < 1) return;
+  console.log(n);
+  backward(n - 1);
+}
+backward(5);
+
+function countdown(n) {
+    if (n === 0) return;   // base case
+    console.log(n);
+    countdown(n - 1);      // making `n` smaller
+}
+countdown(5);
 
 // count number n to 1
 function count(n) {
     if (n === 2) return
     count(n - 1)
     process.stdout.write(n + " ")
-
-
 }
 count(4)
 
@@ -45,7 +88,7 @@ function print(n, current = 0) {  // to intiate with 0 we need to write this
 }
 print(4)
 
-// without parameter 
+// without parameter  it print 5 to 0
 function print(n) {
     if (n < 0) return;
     process.stdout.write(n + " ")

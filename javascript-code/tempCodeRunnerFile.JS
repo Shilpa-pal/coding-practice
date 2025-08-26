@@ -1,6 +1,6 @@
-function priString(str,times){
-    if (times === 0 )return 
-    console.log(str)
-    priString(str,times-1)
+function printOneToN(i, n) {
+    if (i > n) return;  
+    console.log(i);    
+    printOneToN(i + 1, n);  // move forward
 }
-priString("Shilpa",6)
+printOneToN(0,5)
