@@ -1,6 +1,9 @@
-function printOneToN(i, n) {
-    if (i > n) return;  
-    console.log(i);    
-    printOneToN(i + 1, n);  // move forward
+// got another method to pirnt each words(string) in differnt row 
+function printEachstr(str,i =0){
+    if (i>=str.length) return
+    console.log(str[i])
+    printEachstr(str,i + 1)
+    
 }
-printOneToN(0,5)
+let wordsarray=  "I love coding".split(" ");
+printEachstr(wordsarray)
