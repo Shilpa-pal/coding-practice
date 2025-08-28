@@ -1,9 +1,17 @@
-// got another method to pirnt each words(string) in differnt row 
-function printEachstr(str,i =0){
-    if (i>=str.length) return
-    console.log(str[i])
-    printEachstr(str,i + 1)
+
+function swapArray(i,arr,n){
+    if(i>= Math.floor(n/2)) return   // base case
+
+    // swaping             
+    // // temp = a
+    // a = b
+    //b = temp
+    [arr[i] ,arr[n-i-1]]= [arr[n-i-1],arr[i]]
     
+    swapArray(i+ 1,arr,n);   // recursive call
 }
-let wordsarray=  "I love coding".split(" ");
-printEachstr(wordsarray)
+let arr1 = [1,2,3,4,5]
+let n1 = arr1.length
+swapArray(0,arr1,n1)
+console.log(arr1.join(" "))
+

@@ -33,6 +33,8 @@ function sum(n) {
 
 }
 console.log(sum(4))
+
+//........................................
 function printNToOne(i) {
     if (i < 1) return;
 
