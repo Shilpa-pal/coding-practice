@@ -180,7 +180,7 @@ function sumOfArray(arr, i) {    // 2nd it comes here
     return arr[i] + sumOfArray(arr, i - 1)// here arr[i] is 2  means = 4 + sumArray([2,3,4],1) it again get called
 }
 let arri = [2, 3, 4,]
-console.log(sumOfArray(arri, arri.length - 1)) // 1st it get called that mean sumofArray([2,3,4],2)  // becuasae aray is 3
+console.log(sumOfArray(arri, arri.length - 1)) // 1st it get called that mean sumofArray([2,3,4],2)  // becuasae array is 3
 
 
 // check palindrome 
