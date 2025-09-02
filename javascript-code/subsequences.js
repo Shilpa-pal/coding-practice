@@ -1,3 +1,6 @@
+
+// write a subsequences of array
+
 function subsequences(ind, array, ds, n) {    // ind = index , ds= where subsequnces of aray store n = lenght of array
     // Base Case: if we reached end of array
     if (ind === n) {
@@ -5,7 +8,8 @@ function subsequences(ind, array, ds, n) {    // ind = index , ds= where subsequ
         if (ds.length === 0) {
             console.log("{}");  // empty subsequence
         } else {
-            console.log(ds.join(" "));
+            console.log(ds.join(" "));join(" ") //converts the array into a string where elements are separated by a space " ".
+            //ds = [3, 1, 2]; to this ................... ds.join(" ") → "3 1 2"
         }
         return;
     }
