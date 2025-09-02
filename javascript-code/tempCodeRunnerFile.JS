@@ -1,29 +1,21 @@
-function subsequences(ind, array, ds, n) {    // ind = index , ds= where subsequnces of aray store n = lenght of array
-    // Base Case: if we reached end of array
-    if (ind === n) {
-        // Print current subsequence (ds)
-        if (ds.length === 0) {
-            console.log("{}");  // empty subsequence
-        } else {
-            console.log(ds.join(" "));
-        }
-        return;
+function sumOfSubsequences(ind,s,su,arri,no){  // ind = index,ds = datastructure where all the array value get store ,s = 0 in intail ,sum = 2 have mention ,nu = length.arr
+    if(ind === no){
+        return su === s? 1:0
+        
     }
+    // Take the current element
+  
+    s+=arri[ind]
+   let left = sumOfSubsequences(ind+1,s,su,arri,no)
+     // Skip the current element
+    s-=arri[ind]
+    
+    let right = sumOfSubsequences(ind + 1,s,su, arri,no)
 
-    // ---------- TAKE CASE ----------
-    // Include arr[index] in the subsequence
-    ds.push(array[ind]);      //it adds in ds 
-    subsequences(ind + 1, array, ds, n)
-
-    // to skip 
-    // Backtrack: remove the last element added
-    ds.pop();
-    // ---------- NOT TAKE CASE ----------
-    // Move forward without including arr[index]
-    subsequences(ind + 1, array, ds, n)
-
+    return left + right
 }
-// Driver code
-let array = [3, 2, 1]   // here is array given 
-let n = array.length   // here is length of array 
-subsequences(0, array, [], n)   // here called the function
+let arri = [1,2,1]
+let no = arri.length
+let su = 2
+
+console.log(sumOfSubsequences(0,0,su,arri,no))
