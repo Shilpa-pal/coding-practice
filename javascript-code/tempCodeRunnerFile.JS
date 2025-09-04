@@ -1,21 +1,52 @@
-function sumOfSubsequences(ind,s,su,arri,no){  // ind = index,ds = datastructure where all the array value get store ,s = 0 in intail ,sum = 2 have mention ,nu = length.arr
-    if(ind === no){
-        return su === s? 1:0
-        
+//cheack frequency of string
+
+function main(inputs){
+    let data1 =inputs.trim().split(/\s+/) 
+    idx = 0
+
+    // read the size of array
+    let n = data1[idx]
+    idx = idx + 1
+
+    // read th element
+    let arr = []
+    for(let i = 0;i<n;i++){
+        arr.push(data1[idx])
+        idx = idx + 1
     }
-    // Take the current element
-  
-    s+=arri[ind]
-   let left = sumOfSubsequences(ind+1,s,su,arri,no)
-     // Skip the current element
-    s-=arri[ind]
-    
-    let right = sumOfSubsequences(ind + 1,s,su, arri,no)
+     // precompute frequency (use object for strings)
+    let hash = {}
+    for(let i =0;i<n;i++){
+        let ch = arr[i]
+        hash[ch]= (hash[ch] || 0)+ 1
+    }
 
-    return left + right
+    // size of query
+    let query = data1[idx]
+    idx = idx + 1
+
+    // 
+     // Step 5: Answer each query
+    let Output = []
+    for (let i=0;i<query;i++){
+        let number = data1[idx];
+        idx = idx + 1;
+        Output.push(hash[number] || 0)  // if not found → 0  // //hash[number] → looks up frequency.
+
+       
+    }
+     return Output.join("\n")
 }
-let arri = [1,2,1]
-let no = arri.length
-let su = 2
+// input
+let inputs =`
+6
+a b c a b c
+5
+a
+b
+c
+d
+e
+`
 
-console.log(sumOfSubsequences(0,0,su,arri,no))
+console.log(main(inputs))
