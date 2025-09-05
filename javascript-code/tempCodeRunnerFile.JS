@@ -1,52 +1,47 @@
-//cheack frequency of string
+// another alternative to slove when we know charchater is in lowercase
 
-function main(inputs){
-    let data1 =inputs.trim().split(/\s+/) 
-    idx = 0
+function mainAlpha(inp){
+    let data2 = inp.trim().split(/\s+/);
+    let idx = 0
 
-    // read the size of array
-    let n = data1[idx]
-    idx = idx + 1
+     // Step 1: Read string
+     let s = data2[idx]
+     idx = idx + 1   // we can write this dirext idx++
 
-    // read th element
-    let arr = []
-    for(let i = 0;i<n;i++){
-        arr.push(data1[idx])
-        idx = idx + 1
-    }
-     // precompute frequency (use object for strings)
-    let hash = {}
-    for(let i =0;i<n;i++){
-        let ch = arr[i]
-        hash[ch]= (hash[ch] || 0)+ 1
-    }
+    //
+  // Step 2: Precompute frequency for 26 lowercase letters
+  let hash = new Array(26).fill(0)
+  for(let i = 0;i<s.length;i++){
+    let ch = s[i]
+    hash[ch.charCodeAt(0) - "a".charCodeAt(0)]++;
+  }
 
-    // size of query
-    let query = data1[idx]
-    idx = idx + 1
+  //  // Step 3: Read number of queries
+  let query = parseInt(data2[idx])
+  idx = idx+ 1
 
-    // 
-     // Step 5: Answer each query
-    let Output = []
-    for (let i=0;i<query;i++){
-        let number = data1[idx];
-        idx = idx + 1;
-        Output.push(hash[number] || 0)  // if not found → 0  // //hash[number] → looks up frequency.
+  // ANswer each query
+  let output = []
+  for(let i = 0;i<query;i++){
+    let c = data2[idx]
+    idx = idx + 1   /// we can write this dirext idx++
 
-       
-    }
-     return Output.join("\n")
+    output.push(hash[c.charCodeAt(0)-"a".charCodeAt(0)])
+
+  }
+  
+  return output.join("\n");
 }
-// input
-let inputs =`
-6
-a b c a b c
+
+// Example input
+let inp = `
+abcdabehf
 5
 a
+g
+h
 b
 c
-d
-e
-`
+`;
 
-console.log(main(inputs))
+console.log(mainAlpha(inp));

@@ -139,3 +139,134 @@ e
 `
 
 console.log(main(inputs))
+
+
+// another alternative to slove when we know charchater is in lowercase
+
+function mainAlpha(inp){
+    let data2 = inp.trim().split(/\s+/);
+    let idx = 0
+
+     // Step 1: Read string
+     let s = data2[idx]
+     idx = idx + 1   // we can write this dirext idx++
+
+    //
+  // Step 2: Precompute frequency for 26 lowercase letters
+  let hash = new Array(26).fill(0)
+  for(let i = 0;i<s.length;i++){
+    let ch = s[i]
+    hash[ch.charCodeAt(0) - "a".charCodeAt(0)]++;  //harCodeAt(0) gives ASCII code.
+//'a'.charCodeAt(0) = 97
+//'c'.charCodeAt(0) = 99
+  }
+
+  //  // Step 3: Read number of queries
+  let query = parseInt(data2[idx])
+  idx = idx+ 1
+
+  // ANswer each query
+  let output = []
+  for(let i = 0;i<query;i++){
+    let c = data2[idx]
+    idx = idx + 1   /// we can write this dirext idx++
+
+    output.push(hash[c.charCodeAt(0)-"a".charCodeAt(0)])
+
+  }
+  
+  return output.join("\n");
+}
+
+// Example input
+let inp = `
+abcdabehf
+5
+a
+g
+h
+b
+c
+`;
+
+console.log(mainAlpha(inp));
+
+
+// general method! for uppercase lowercase and symbol
+
+function main(iput) {
+  const lines = iput.trim().split(/\s+/); // split all whitespace → tokens: [string, q, q1, q2, ...]
+  let idx = 0;                              // input cursor (which token we're on)
+
+  const s = lines[idx++];                   // read the string, then move cursor to next token
+
+  // ------- precompute frequency for all ASCII chars (0..255)
+  const hash = new Array(256).fill(0);      // create 256 boxes, all starting at 0
+  for (let i = 0; i < s.length; i++) {      // iterate each character of the string
+    const code = s.charCodeAt(i);           // numeric code of s[i] (e.g., 'a' → 97)
+    hash[code] = hash[code] + 1;            // Whenever we see the same character again, we “bump” (increment) its frequency in the hash table by 1.
+    // (equivalently: hash[code]++)
+  }
+
+  // ------- read queries and answer them
+  let q = Number(lines[idx++]);             // how many queries? (also advance cursor)
+  const out = [];                            // collect answers to print once at the end
+
+  while (q--) {                              // run exactly q times (after each check, q decreases)
+    const c = lines[idx++];                  // read next query character, advance cursor
+    const code = c.charCodeAt(0);            // its numeric code
+    out.push(hash[code]);                    // push precomputed frequency (0 if it never appeared)
+  }
+
+  return out.join("\n");                     // join answers by newline
+}
+// Example input
+let iput = `
+abcdabehf
+5
+a
+g
+h
+b
+c
+`;
+
+console.log(main(iput));
+
+
+/// here is same logic as above but some syntax changes used short form we can write it like this also 
+function mainalternate(userinput){
+    let lines = userinput.trim().split(/\s+/)
+    let s = lines[0]  //.. the string
+ 
+    //precumpute
+        let hash = new Array(256).fill(0)
+        for(let ch  of s){
+            let code = ch.charCodeAt(0)// ASCII code
+            hash[code]++
+        }
+
+    // read queries
+    let q = Number[lines[0]];
+    let output = []
+    let idx = 2
+    while (q--){ //5 → 4 → 3 → 2 → 1 → 0 (loop runs while value before -- is non-zero) //when q hits 0, loop stops.
+        let c = lines[idx++]
+        let code = c.charCodeAt(0);
+        output.push(hash[code])
+    }
+    return output.join("\n")
+
+}
+// Example input
+let userinput = `
+abcdabehf
+5
+a
+g
+h
+b
+c
+`;
+
+console.log(main(userinput));
