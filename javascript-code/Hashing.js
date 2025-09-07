@@ -31,7 +31,7 @@ console.log(countFreq([1, 2, 2, 1, 3]));
 
 
 
-// check how many times number gets repeat
+// check how many times number gets repeat by hashing technique
 
 function hashing(input){
     let data = input.trim().split(/\s+/).map(Number)
@@ -87,7 +87,7 @@ let input =`
 console.log(hashing(input))
 
 
-//cheack frequency of string
+// hashing technique cheack frequency of string
 
 function main(inputs){
     let data1 =inputs.trim().split(/\s+/) 
@@ -141,7 +141,7 @@ e
 console.log(main(inputs))
 
 
-// another alternative to slove when we know charchater is in lowercase
+// hashing technique another alternative to slove when we know charchater is in lowercase
 
 function mainAlpha(inp){
     let data2 = inp.trim().split(/\s+/);
@@ -192,7 +192,7 @@ c
 console.log(mainAlpha(inp));
 
 
-// general method! for uppercase lowercase and symbol
+//hashing technique general method! for uppercase lowercase and symbol
 
 function main(iput) {
   const lines = iput.trim().split(/\s+/); // split all whitespace → tokens: [string, q, q1, q2, ...]
@@ -234,7 +234,7 @@ c
 console.log(main(iput));
 
 
-/// here is same logic as above but some syntax changes used short form we can write it like this also 
+/// here is same logic as above but some syntax changes used short form we can write it like this also  hashing technique
 function mainalternate(userinput){
     let lines = userinput.trim().split(/\s+/)
     let s = lines[0]  //.. the string
