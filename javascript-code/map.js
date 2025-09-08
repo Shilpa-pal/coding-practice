@@ -17,6 +17,9 @@ function frequency(arr,quiries){
 console.log(frequency([1,2,3,1,3,2,12], [1,2,3,4,12]));
 
 
+
+//cheching highest frequncy
+
 function highestAndLowestFrequency(arr) {
   const freq = new Map();
 
@@ -24,11 +27,15 @@ function highestAndLowestFrequency(arr) {
   for (let num of arr) {
     freq.set(num, (freq.get(num) || 0) + 1);
   }
+   // Now freq looks like:
+  // 10 → 3
+  // 5  → 2
+  // 15 → 1
 
   // Step 2: Find max and min frequency
   let maxFreq = -Infinity, minFreq = Infinity;
   let maxElement = null, minElement = null;
-
+//// Loop over each [num, count] in the map
   for (let [num, count] of freq) {
     if (count > maxFreq) {
       maxFreq = count;
@@ -38,6 +45,18 @@ function highestAndLowestFrequency(arr) {
       minFreq = count;
       minElement = num;
     }
+    // Iteration 1: num = 10, count = 3
+    // 3 > -Infinity → true → maxFreq = 3, maxElement = 10
+    // 3 < Infinity  → true → minFreq = 3, minElement = 10
+
+    // Iteration 2: num = 5, count = 2
+    // 2 > maxFreq (3)? → false → no change
+    // 2 < minFreq (3)? → true → minFreq = 2, minElement = 5
+
+    // Iteration 3: num = 15, count = 1
+    // 1 > maxFreq (3)? → false → no change
+    // 1 < minFreq (2)? → true → minFreq = 1, minElement = 15
+  
   }
 
   return [maxElement, minElement];
@@ -50,3 +69,4 @@ console.log(highestAndLowestFrequency([10, 5, 10, 15, 10, 5]));
 // Example 2
 console.log(highestAndLowestFrequency([2, 2, 3, 4, 4, 2])); 
 // Output: [2, 3]
+
