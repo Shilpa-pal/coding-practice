@@ -1,21 +1,20 @@
-function selectionSort(arr) {
-    let n = arr.length
+function insertionSort(ar){
+    let n = ar.length
 
-    for (let i = 0; i <= n - 2; i++) {
-        let mini = i
-        for (let j = i + 1; j <= n - 1; j++) {
-            if (arr[j] < arr[mini]) {
-                mini = j
-            }
+    for(let i = 1;i<n;i++){
+        let curr = ar[i]  // we can write arr[i]     // means index that start from 0,1,2,3 ...etc
+        let prev = i-1      // the value before the current  aasume [4,3,2,1] if current is 2 than previous is 3 (i-1)
+ // shift larger elements one step ahead
+        while(prev >= 0 && ar[prev] > curr){
+             ar[prev+ 1]  = ar[prev]    
+            prev--;
         }
-        //swap 
-        let temp = arr[mini]
-        arr[mini] = arr[i]
-        arr[i] = temp
+        
+        // place current element at the correct position
+        ar[prev+ 1] = curr
     }
-    return arr
+    return ar
 
 }
-// Example usage:
-let arr = [13, 46, 24, 52, 20, 9];
-console.log("Sorted array:", selectionSort(arr));
+console.log(insertionSort([4, 1, 5, 2, 3]));
+
