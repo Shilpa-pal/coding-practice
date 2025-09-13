@@ -70,3 +70,47 @@
 // let arr = [5, 2, 8, 3, 1];
 // mS(arr, 0, arr.length - 1); //“Sort the array from the first element (index 0) to the last element (index 4).”
 // console.log(arr); // [1, 2, 3, 5, 8]
+
+
+function mergingSort(arr,st,mid,end){
+    let temp = []
+    let  i = st
+    let  j = mid + 1
+
+    while(i<=mid && j<=end){
+        if(arr[i]<=arr[j]){
+            temp.push(arr[i]);
+            i++;
+        }else{
+        temp.push(arr[j])
+        j++
+    }
+    }
+    while(i<=mid){
+        temp.push(arr[i])
+        i++
+    }
+    while(j<=end){
+        temp.push(arr[j])
+        j++
+    }
+    // ✅ Copy back using i - st
+  for (let i = st; i <= end; i++) {
+    arr[i] = temp[i - st];
+  }
+}
+
+function mergeSort(arr, st, end) {
+  if (st < end) {
+    let mid = st + Math.floor((end - st) / 2);
+
+    mergeSort(arr, st, mid);     // left half
+    mergeSort(arr, mid + 1, end); // right half
+    mergingSort(arr, st, mid, end);     // merge halves
+  }
+}
+
+// Example usage
+let arr = [12, 31, 35, 8, 32, 17];
+mergeSort(arr, 0, arr.length - 1);
+console.log(arr); // [8, 12, 17, 31, 32, 35]
