@@ -54,7 +54,7 @@ let arr = [13, 46, 24, 52, 20, 9];
 console.log("Sorted array:", selectionSort(arr));
 
 
-/// bubble sort code 
+/// bubble sort code   od iterative method  
 
 function bubbleShort(array) {
     let n = array.length
@@ -85,46 +85,90 @@ console.log("Sorted array:", bubbleShort(array))
 function bubbleSort(arri) {
     let n = arri.length;
 
-    // Outer loop → how many passes
-    for (let i = 0; i < n - 1; i++) {   // here the loop i ened at n-1 you no it will goes until n-2 becuse last index not count so both are the same meaning
-        
+    // Outer loop → how many passes A pass = one sweep of the inner loop.
+    // Each pass puts the next largest element in its correct spot at the end.
+    for (let i = 0; i < n - 1; i++) {   // here the loop i ened at n-1 but U know it will goes until n-2 becuse last index not count so both are the same meaning
+
         // Inner loop → compares adjacent elements
-        for (let j = 0; j < n - i - 1; j++) {
-            
+        for (let j = 0; j < n - i - 1; j++) { //we not written n-1 because it will take more item not inefficient
+            //But it makes extra comparisons with already sorted elements
+            //j < n - 1 = correct but inefficient.
+            // j < n - i - 1 = correct and optimized.
             if (arri[j] > arri[j + 1]) {
                 // Swap elements
-                let temp = arri[j];
-                arri[j] = arri[j + 1];
-                arri[j + 1] = temp;
+                // let temp = arri[j];
+                // arri[j] = arri[j + 1];
+                // arri[j + 1] = temp;
+                [arri[j], arri[j + 1]] = [arri[j + 1], arri[j]]
             }
         }
     }
     return arri
 }
 
-let arri = [5,26,9,57,87,4,1]
-console.log("sorted version",bubbleSort(arri))
+let arri = [5, 26, 9, 57, 87, 4, 1]
+console.log("sorted version", bubbleSort(arri))
 
+
+//bubble sort of recursive code 
+
+function bubbleRecursive(ar, n = ar.length) {
+    if (n === 1) return ar//base case  //bucuse last element no need to sort 
+    function bubble(i) {
+        if (i === n - 1) return
+        if (ar[i] > ar[i + 1]) {
+            //swap
+            [ar[i], ar[i + 1]] = [ar[i + 1], ar[i]];
+        }
+        bubble(i + 1)  //mean like j++ like iterative 
+    }
+    bubble(0);  // here it intiate with 0
+    return bubbleRecursive(ar, n - 1)
+}
+let ar = [7, 4, 1, 5, 3]
+console.log(bubbleRecursive(ar))
+
+//here is alternative of of above 
+// In this i will not use two functions I'll used only one
+
+function recursiveBubble(a,n = a.length, i = 0) {// here a- means array 
+    if (n === 1) return a;
+    if (i < n - 1) {
+        if (a[i] > a[i + 1]) {
+            //swap
+            [a[i], a[i + 1]] = [a[i + 1], a[i]];
+
+        } 
+        // move forward in pass // meanj++ m
+            return recursiveBubble(a,n,i + 1)
+
+    } // Outer recursion → one pass done, now reduce size mean //i++
+            return recursiveBubble(a,n-1,0)
+
+    
+}
+let a = [5, 1, 4, 2];
+console.log(recursiveBubble(a));
 
 // insertion method
 
-function insertionSort(ar){
+function insertionSort(ar) {
     let n = ar.length
 
-    for(let i = 1;i<n;i++){
+    for (let i = 1; i < n; i++) {
         let curr = ar[i]  // we can write arr[i]     // means index that start from 0,1,2,3 ...etc
-        let prev = i-1      // the value before the current  aasume [4,3,2,1] if current is 2 than previous is 3 (i-1)
- // shift larger elements one step ahead
-        while(prev >= 0 && ar[prev] > curr){
-             ar[prev+ 1]  = ar[prev]    // it will shift to the right 
-             // arr[0] = 8 > 4 ✅
-             //→ Shift: arr[prev + 1] = arr[prev]
-             // arr[1] = arr[0] → [4, 4, 5, 2, 3] 
+        let prev = i - 1      // the value before the current  aasume [4,3,2,1] if current is 2 than previous is 3 (i-1)
+        // shift larger elements one step ahead
+        while (prev >= 0 && ar[prev] > curr) {
+            ar[prev + 1] = ar[prev]    // it will shift to the right 
+            // arr[0] = 8 > 4 ✅
+            //→ Shift: arr[prev + 1] = arr[prev]
+            // arr[1] = arr[0] → [4, 4, 5, 2, 3] 
             prev--;
         }
-        
+
         // place current element at the correct position
-        ar[prev+ 1] = curr
+        ar[prev + 1] = curr
     }
     return ar
 
