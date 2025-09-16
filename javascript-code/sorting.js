@@ -155,25 +155,76 @@ console.log(recursiveBubble(a));
 function insertionSort(ar) {
     let n = ar.length
 
-    for (let i = 1; i < n; i++) {
+    for (let i = 1; i < n; i++) {  // start with index 1st becuse prev i-1 is previous value of index 1 so for compaare ar[0] >ar[1]
         let curr = ar[i]  // we can write arr[i]     // means index that start from 0,1,2,3 ...etc
         let prev = i - 1      // the value before the current  aasume [4,3,2,1] if current is 2 than previous is 3 (i-1)
         // shift larger elements one step ahead
         while (prev >= 0 && ar[prev] > curr) {
-            ar[prev + 1] = ar[prev]    // it will shift to the right 
-            // arr[0] = 8 > 4 ✅
+            ar[prev + 1] = ar[prev]    // That means the previous index value is copied into the next index (shift to the right).
+            //mean value copied in prev + 1
+            // Example with [4,1,5,2,3]:
+            // i = 1, curr = 1, prev = 0  4>1 this condition is true
+            // ar[1] = ar[0] → [4,4,5,2,3] it will shift to the right means  0 index value get compied t0 index 1 value 
+            
+           
             //→ Shift: arr[prev + 1] = arr[prev]
             // arr[1] = arr[0] → [4, 4, 5, 2, 3] 
             prev--;
         }
-
         // place current element at the correct position
+        //When the while loop finishes:
+            // ar[prev + 1] = curr happens
         ar[prev + 1] = curr
     }
     return ar
-
 }
 console.log(insertionSort([4, 1, 5, 2, 3]));
 
+//inseration backword recursive code.........................................................................................
+function insertionSortRecursive(arr, n = arr.length) {
+    if (n <= 1) return arr;   // base case
 
+    insertionSortRecursive(arr, n - 1);  // sort first n-1 elements
 
+    let last = arr[n - 1];   // element to insert
+    let j = n - 2;
+
+    while (j >= 0 && arr[j] > last) {
+        arr[j + 1] = arr[j];  // shift arr[j+1] = slot where we copy the bigger element (arr[j]).
+// arr[j+1] = arr[j]
+// arr[4]   = arr[3]
+// Index:  0   1   2   3   4   indx j (n-2) value below have written
+//Array:  [1,  2,  4,  5,  3] 
+//At some point, j = 3 → arr[j] = 5.
+//j+1 = 4 means last index it always shift to the right thta's why we used j+ 1
+//We want to move 5 one slot to the right, so it shifts from position j to position j+1
+
+        j--;
+    }
+    //After the loop:
+    arr[j + 1] = last;     //insert   //  final correct position where we place last.
+
+    return arr;
+}
+arr=[4, 1, 5, 2, 3]
+console.log(insertionSortRecursive(arr))
+
+// forwards insertion Recursive.................................................................................
+function insertionSortRecursiveForward(arr, i = 1) {
+    if (i >= arr.length) return arr;  // base case (no more elements left)
+
+    let curr = arr[i];
+    let prev = i - 1;
+
+    while (prev >= 0 && arr[prev] > curr) {
+        arr[prev + 1] = arr[prev];
+        prev--;
+    }
+    arr[prev + 1] = curr;
+
+    // recursion replaces the loop increment
+    return insertionSortRecursiveForward(arr, i + 1);
+}
+
+arr=[4, 1, 5, 2, 3]
+console.log(insertionSortRecursiveForward(arr))

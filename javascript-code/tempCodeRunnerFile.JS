@@ -1,17 +1,18 @@
-function recursiveBubble(a,n = a.length, i = 0) {// here a- means array 
-    if (n === 1) return a;
-    if (i < n - 1) {
-        if (a[i] > a[i + 1]) {
-            //swap
-            [a[i], a[i + 1]] = [a[i + 1], a[i]];
+function insertionSortRecursiveForward(arr, i = 1) {
+    if (i >= arr.length) return arr;  // base case (no more elements left)
 
-        }
-            return recursiveBubble(a,n,i + 1)
+    let curr = arr[i];
+    let prev = i - 1;
 
+    while (prev >= 0 && arr[prev] > curr) {
+        arr[prev + 1] = arr[prev];
+        prev--;
     }
-            return recursiveBubble(a,n-1,0)
+    arr[prev + 1] = curr;
 
-    
+    // recursion replaces the loop increment
+    return insertionSortRecursiveForward(arr, i + 1);
 }
-let a = [5, 1, 4, 2];
-console.log(recursiveBubble(a));
+
+arr=[4, 1, 5, 2, 3]
+console.log(insertionSortRecursiveForward(arr))
