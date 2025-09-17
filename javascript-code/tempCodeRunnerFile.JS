@@ -1,18 +1,12 @@
-function insertionSortRecursiveForward(arr, i = 1) {
-    if (i >= arr.length) return arr;  // base case (no more elements left)
+function removeDuplicates(rray){
 
-    let curr = arr[i];
-    let prev = i - 1;
-
-    while (prev >= 0 && arr[prev] > curr) {
-        arr[prev + 1] = arr[prev];
-        prev--;
+    let i = 0
+    for(let j = 0;j<rray.length;j++){
+        if(rray[i]!==rray[j]){
+            rray[i+ 1] = rray[j];
+            i++;
+        }
     }
-    arr[prev + 1] = curr;
-
-    // recursion replaces the loop increment
-    return insertionSortRecursiveForward(arr, i + 1);
+    return i + 1
 }
-
-arr=[4, 1, 5, 2, 3]
-console.log(insertionSortRecursiveForward(arr))
+console.log(removeDuplicates([1,1,2,2,2,3,3,3]))

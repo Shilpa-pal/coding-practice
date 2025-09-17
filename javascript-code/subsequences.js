@@ -8,7 +8,7 @@ function subsequences(ind, array, ds, n) {    // ind = index , ds= where subsequ
         if (ds.length === 0) {
             console.log("{}");  // empty subsequence
         } else {
-            console.log(ds.join(" "));join(" ") //converts the array into a string where elements are separated by a space " ".
+            console.log(ds.join(" "));//join(" ") //converts the array into a string where elements are separated by a space " ".
             //ds = [3, 1, 2]; to this ................... ds.join(" ") → "3 1 2"
         }
         return;

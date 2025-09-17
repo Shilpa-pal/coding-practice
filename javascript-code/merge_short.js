@@ -14,7 +14,7 @@
 //             right++
 //         }
 
-//     // If left half still has elements, append themKeep moving through the left side until you reach the end (mid).
+//     // If left half still has elements, append them Keep moving through the left side until you reach the end (mid).
 //     // If anything is left over on the left side, just put it into temp.
 //     while (left <= mid) {   //it push till left side = mid if left idx 2 and mid vlaue is 2 it shoud goes till last index if any leftover number in left push them on left side
 //         temp.push(arr[left]);

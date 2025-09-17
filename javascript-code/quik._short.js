@@ -4,14 +4,14 @@ function partition(arr,str,end){
     let idx = str -1   // st -1 written because we start with index -1 means before 0
     let pivIdx = arr[end]   // last number we have chosen for pivote form array arr[end] means last index of array
 
-    for(let j =str;j<end;j++){
+    for(let j=str;j<end;j++){
         if(arr[j]<=pivIdx){   // this condition says if arr[j] means the indx no. less than piviote number then perfrom swap else idx++
             idx++
-            [arr[j],arr[idx]] = [arr[idx],arr[j]]
+            [arr[j],arr[idx]] = [arr[idx],arr[j]]  //swaping 
         }
     }
     idx++
-    [arr[end],arr[idx]] = [arr[idx],arr[end]] //// place pivot at right place
+    [arr[end],arr[idx]] = [arr[idx],arr[end]] //// place pivot at right place the number we have choosed for pivote like we have choosen 3 which lies on index last
     return idx;
 
 }
