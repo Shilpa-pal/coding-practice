@@ -148,24 +148,66 @@ console.log(rotateLeftBrute([1, 2, 3, 4, 5])); // [2,3,4,5,1]
 
 function leftRotate(arr,d){
     let n = arr.length
-    d = d % n // handle if d greater than n
+    d = d % n // handle if d greater than n 3(number given to rotate)% 7(arary number)
     let temp = []
     for(let i = 0;i<d;i++){
         temp[i]=arr[i]
+        //i = 0 → temp[0] = arr[0] = 1 → temp = [1]
+        // i = 1 → temp[1] = arr[1] = 2 → temp = [1,2]
+        // i = 2 → temp[2] = arr[2] = 3 → temp = [1,2,3]
     
     }
     for(let i = d;i<n;i++){
-        arr[i-d] =arr[i]
+        //[i-d] the 3rd index goes d places back our 3rd ind hav 4 and it goes i-d indxes back means place 3 to 0th index 
+        arr[i-d] =arr[i] //works when loop starts at i=d.
+        //d = 3, the calculation goes like this:
+        // For i = 3 → i - d = 3 - 3 = 0 → arr[0] = arr[3] → put 4 at index 0
+        // For i = 4 → i - d = 4 - 3 = 1 → arr[1] = arr[4] → put 5 at index 1
+        // For i = 5 → i - d = 5 - 3 = 2 → arr[2] = arr[5] → put 6 at index 2
+        // For i = 6 → i - d = 6 - 3 = 3 → arr[3] = arr[6] → put 7 at index 3
     }
-    for(let i = 0;i<d;i++){
-        arr[n-d+i] = temp[i] // here is formula n(lenth of arr)-d(the number we have to roate )+ i(it start with 0,than one )
-        //(0 goes n-d index,1 goes(n-d)+172 goes(n-d)+2)ind
+    for(let i = n-d;i<n;i++){  //7-3 = 4 ,we have to put 4 inx to 7 
+        arr[i-(n-d)] = temp[i] // here is formula n(lenth of arr)-d(the number we have to roate )+ i(it start with 0,than one )
+        //(0 goes n-d index,1 goes(n-d)+1,2 goes(n-d)+2)ind
     }
     return arr
 }
 console.log(leftRotate([1, 2, 3, 4, 5, 6, 7], 3));
 // Output: [4, 5, 6, 7, 1, 2, 3]
 
+// agin a brute force
+
+function rotateLeft(arr){
+    let n = arr.length
+    if(n === 0)return arr;//If the array is empty, there’s nothing to rotate.
+    k = k % n//handle k>n
+    if(k === 0)return 0 //If k is zero, that means no rotation is needed.
+
+    //store 1st k elements
+    let temp = []
+    for(let i =0;i<k;i++){
+        temp[i] = arr[i]
+    }
+    //shift remaining element to the left
+    for(let i = 0;i<n-k;i++){//n = 7 ,k = 2 ,n - k = 7 - 2 = 5
+    // So loop runs for i = 0,1,2,3,4 (5 times).
+        arr[i] = arr[i + k]   //works when loop starts at i=0.
+
+
+    }
+    //copy bank to the end
+    for(let i = i-k;i<n;i++){
+        arr[i]=temp[i-(n-k)]//for (let i = n - k; i < n; i++) → i=5..6
+        // i=5 → arr[5] = temp[5 - (7-2)] = temp[0] = 1
+        // → arr = [3,4,5,6,7,1,7]
+        // i=6 → arr[6] = temp[6 - 5] = temp[1] = 2
+        // → arr = [3,4,5,6,7,1,2]
+
+    }
+    return arr
+}
+arr = [1, 2, 3, 4, 5, 6, 7]; let k = 2;
+console.log("After rotating left by " + k + ":", rotateLeft(arr, k)); // Output: [3, 4, 5, 6, 7, 1, 2]
 
 
 
@@ -221,3 +263,5 @@ function simpleSolution(arr){
 }
 
 console.log(moveZeroBruteForce([1,0,2,3,0,4,0]));
+
+

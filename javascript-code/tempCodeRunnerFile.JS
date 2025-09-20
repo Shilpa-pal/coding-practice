@@ -1,18 +1,20 @@
-function leftRotate(arr,d){
-    let n = arr.length
-    d = d % n // handle if d greater than n
-    let temp = []
-    for(let i = 0;i<d;i++){
-        temp[i]=arr[i]
-    
+//optimal solution for intersection
+
+  function interSection(A1,B1){
+    let i = 0
+    let j = 0
+    let ans = []
+    while( i<A1.length && j<B1.length){
+        if(A1[i]<B1[j]){
+            i++
+        }else if(B1[j]<A1[i]){
+            j++
+        }else{
+            ans.push(A1[i]);
+            i++
+        }
     }
-    for(let i = d;i<n;i++){
-        arr[i-d] =arr[i]
-    }
-    for(let i = 0;i<d;i++){
-        arr[n-d+i] = temp[i] // here is formula n(lenth of arr)-d(the number we have to roate )+ i(it start with 0,than one )
-        //(0 goes n-d index,1 goes(n-d)+172 goes(n-d)+2)ind
-    }
-    return arr
-}
-console.log(leftRotate([1, 2, 3, 4, 5, 6, 7], 3));
+    return ans
+  }
+  const A1 = [1,2,2,3,3,4,5,6,7]; const B1=[2,2,3,5,7]
+  console.log(interSection(A1,B1))
