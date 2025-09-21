@@ -210,6 +210,38 @@ arr = [1, 2, 3, 4, 5, 6, 7]; let k = 2;
 console.log("After rotating left by " + k + ":", rotateLeft(arr, k)); // Output: [3, 4, 5, 6, 7, 1, 2]
 
 
+// // optimal solution of Rotate left element to the right
+
+    function reverse(arr, start, end) {
+    while (start < end) {
+        // let temp = arr[start];
+        // arr[start] = arr[end];
+        // arr[end] = temp;
+        [arr[start], arr[end]] = [arr[end], arr[start]];// we can also write this instead of above
+        start++;
+        end--;
+    }
+}
+
+function leftRotate(arr, n, d) {
+    d = d % n; // handle if d > n
+    reverse(arr, 0, d - 1);     // reverse first d elements // mean it start from 0 to indx 2 below given arr
+    reverse(arr, d, n - 1);     // reverse remaining elements // mean indx 3 i.e is 4 to n-1(end)
+    reverse(arr, 0, n - 1);     // reverse whole array 
+    return arr;
+}
+
+// Example usage (Node.js or browser console)
+let arr = [1, 2, 3, 4, 5, 6, 7];
+let n = arr.length;
+let d = 3;
+
+console.log("Original array:", arr);
+let rotated = leftRotate(arr, n, d);
+console.log("Rotated array:", rotated);
+
+
+
 
 // Move zero to end 
 
@@ -240,15 +272,15 @@ function moveZero(array){
 }
 console.log(moveZero([1,0,2,3,5,6,0,0,7]))
 
-//move number to zero brute force approach
+//move zero in lastbrute force approach
 
 
-function simpleSolution(arr){
+function moveZeroBruteForce(arr){
     let n = arr.length
-    let temp = []
+    let result = []
     for(let i = 0;i<n;i++){
         if(arr[i]!==0){
-            temp.push(arr[i])
+            result.push(arr[i])
         }
     }
     
@@ -263,5 +295,6 @@ function simpleSolution(arr){
 }
 
 console.log(moveZeroBruteForce([1,0,2,3,0,4,0]));
+
 
 

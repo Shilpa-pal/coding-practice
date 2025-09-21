@@ -1,20 +1,27 @@
-//optimal solution for intersection
-
-  function interSection(A1,B1){
-    let i = 0
-    let j = 0
-    let ans = []
-    while( i<A1.length && j<B1.length){
-        if(A1[i]<B1[j]){
-            i++
-        }else if(B1[j]<A1[i]){
-            j++
-        }else{
-            ans.push(A1[i]);
-            i++
-        }
+function reverse(arr, start, end) {
+    while (start < end) {
+        let temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
     }
-    return ans
-  }
-  const A1 = [1,2,2,3,3,4,5,6,7]; const B1=[2,2,3,5,7]
-  console.log(interSection(A1,B1))
+}
+
+function leftRotate(arr, n, d) {
+    d = d % n; // handle if d > n
+    reverse(arr, 0, d - 1);       // reverse first d elements
+    reverse(arr, d, n - 1);       // reverse remaining elements
+    reverse(arr, 0, n - 1);       // reverse whole array
+}
+
+// Example usage
+let num = parseInt(prompt("Enter size of array:"));
+let arr = [];
+for (let i = 0; i < n; i++) {
+    arr.push(parseInt(prompt(`Enter element ${i}:`)));
+}
+let d = parseInt(prompt("Enter number of rotations:"));
+
+leftRotate(arr, n, d);
+console.log("Rotated Array: ", arr.join(" "));
