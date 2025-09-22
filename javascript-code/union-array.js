@@ -264,20 +264,20 @@ function findMissingNumber(arr, N) {
         xor1 = xor1 ^ (i + 1);// XOR up to [1...N-1] it is natural nu.
         //The loop index i starts at 0 )
         // But the natural numbers we want to XOR start at 1, not 0 ,By doing i + 1, we shift the start from 0 → 1
-    
-    // XOR numbers from 1 to N-1
-    // i + 1 is used because loop index i starts from 0,
-    // but natural numbers start from 1
-}
 
-xor1 = xor1 ^ N; // Include the last number N in XOR  // XOR up to [1...N] reason of doing this -
-///We want xor1 to represent the XOR of all numbers from 1 to N, not just 1 to N-1.
-//xor1 = (1 ^ 2 ^ 3 ^ 4) ^ 5 = 1 ^ 2 ^ 3 ^ 4 ^ 5
-//Adding xor1 ^ N at the end completes the full set:
+        // XOR numbers from 1 to N-1
+        // i + 1 is used because loop index i starts from 0,
+        // but natural numbers start from 1
+    }
 
-// XOR of xor1 and xor2 gives the missing number
-// Because all other numbers cancel out
-return xor1 ^ xor2;
+    xor1 = xor1 ^ N; // Include the last number N in XOR  // XOR up to [1...N] reason of doing this -
+    ///We want xor1 to represent the XOR of all numbers from 1 to N, not just 1 to N-1.
+    //xor1 = (1 ^ 2 ^ 3 ^ 4) ^ 5 = 1 ^ 2 ^ 3 ^ 4 ^ 5
+    //Adding xor1 ^ N at the end completes the full set:
+
+    // XOR of xor1 and xor2 gives the missing number
+    // Because all other numbers cancel out
+    return xor1 ^ xor2;
 }
 
 // Example usage:
@@ -288,16 +288,16 @@ function main() {
     console.log("The missing number is:", ans); // Output: 3
 }
 
-function  findMaxConsecutiveOnes(num){
+function findMaxConsecutiveOnes(num) {
     let maxi = 0
     let cnt = 0
-    for(let i = 0;i<num.length;i++){
-        if(num[i] === 1){   // here i write equal to 1 becaz i want to chexk freq of 1 
+    for (let i = 0; i < num.length; i++) {
+        if (num[i] === 1) {   // here i write equal to 1 becaz i want to chexk freq of 1 
             cnt++
-        }else{
+        } else {
             cnt = 0
         }
-        maxi = Math.max(maxi,cnt)//returns the bigger number between a and b.
+        maxi = Math.max(maxi, cnt)//returns the bigger number between a and b.
         // Math.max(0, 1) → 1
         // Math.max(2, 0) → 2
         // Math.max(4, 4) → 4
@@ -309,32 +309,105 @@ console.log("The maximum consecutive 1's are", findMaxConsecutiveOnes(nums));
 
 //Find the number that appears once, and other numbers twice.
 
-function getSingleElement(arr){
-    for(let i = 0;i<arr.length;i++){
+function getSingleElement(arr) {
+    for (let i = 0; i < arr.length; i++) {
         const num = arr[i]
         let cnt = 0
         //"whatever number num contains, the inner loop checks the whole array to see if the number is present and how many times,
         //  and if found, cnt+1." Array = [4, 1, 2, 1, 2]
         // Outer picks num = 4
         // Inner checks all elements:
-//4 == 4 ✅ cnt=1, others don’t match → cnt=1 → return 4.
+        //4 == 4 ✅ cnt=1, others don’t match → cnt=1 → return 4.
 
-        for(let j = 0;j<arr.length;j++){
-            if (arr[j] === num){
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[j] === num) {
                 cnt++
             }
         }
-        if (cnt === 1){
+        if (cnt === 1) {
             return num
         }
     }
     return -1
-    
+
 }
 function main() {
-  const arr = [4, 1, 2, 1, 2];
-  const ans = getSingleElement(arr);
-  console.log("The single element is:", ans);
+    const arr = [4, 1, 2, 1, 2];
+    const ans = getSingleElement(arr);
+    console.log("The single element is:", ans);
 }
 
 main();
+
+// optimal  solution of find nummber of single freq in array
+
+function getSingleElement1(arr1) {
+    let xorr = 0
+    for (let i = 0; i < arr1.length; i++) {
+        xorr = xorr ^ arr1[i]
+    }
+    return xorr;
+}
+const arr1 = [5, 1, 1, 6, 6,]
+console.log(getSingleElement1(arr1))
+
+
+// above better solution 
+
+function singleElement(arr) {
+    let n = arr.length
+    //// Step 1: find maximum element becuse with help of maxi value according to that we have to make hash size(max + 1) 
+    //if we have 20 is the max number then hash six=ze(max + 1)=(20 + 1)
+    let maxi = arr[0]
+    for (let i = 0; i < n; i++) {
+        maxi = Math.max(maxi, arr[i])
+    }
+
+    // Step 2: build frequency hash
+    let hash = new Array(maxi + 1).fill(0)//hash = new Array(maxi+1).fill(0) → size 9 → [0,0,0,0,0,0,0,0,0]
+
+    for (let i = 0; i < n; i++) {
+        hash[arr[i]]++
+    }
+    //arr[0]=5 → hash[5]++ → [0,0,0,0,0,1,0,0,0]
+    // arr[1]=7 → hash[7]++ → [0,0,0,0,0,1,0,1,0]
+    // arr[2]=8 → hash[8]++ → [0,0,0,0,0,1,0,1,1]
+    // arr[3]=2 → hash[2]++ → [0,0,1,0,0,1,0,1,1]
+    // arr[4]=2 → hash[2]++ → [0,0,2,0,0,1,0,1,1]
+    // arr[5]=7 → hash[7]++ → [0,0,2,0,0,1,0,2,1]
+    //Final hash = [0,0,2,0,0,1,0,2,1]
+
+    // Step 3: find the single element
+    for (let i = 0; i < n; i++) {
+        if (hash[i] === 1) {
+            return arr[i]
+        }
+    }
+    // This line will never execute // if the array contains a single element. 
+    return -1;// no single element
+}
+
+console.log(singleElement([5, 7, 8, 2, 2, 7]))
+//Space complexity = O(max_element) → depends on maximum number we need to store in hash
+//Total time complexity = O(n + n + n) = O(n)
+
+// finding a single number freq here is another alternative with hash with map 
+//Hash Map / Frequency Map
+
+function signleNumfreq(arr) {
+
+    let n = arr.length
+    let hashmap = new Map()
+    for (let i = 0; i < n; i++) {
+        const num = arr[i]
+        hashmap.set(num, (hashmap.get(num) || 0)+ 1)
+    }
+    for (const [num, count] of hashmap) {
+        if (count === 1){
+            return num
+        }
+    }
+    return -1
+
+}
+console.log(signleNumfreq([4, 1, 2, 1, 2]))
