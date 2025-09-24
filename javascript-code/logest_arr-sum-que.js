@@ -23,7 +23,7 @@ let k1 = 33
 console.log(findSum(arr1,k1))
 
 
-//optimal solution of it
+//optimal solution of it Number of subarrays with sum k
 function subarraySum(arr, k) {
     const n = arr.length;
     let count = 0;
@@ -76,4 +76,33 @@ function subarraySum(arr, k) {
 // Example usage:
 const arr = [4, 9, 20, 3, 10, 5];
 const k = 33;
-console.log("Number of subarrays with sum k:", subarraySum(arr, k));
+console.log("Number of subarrays with sum k:", subarraySum(arr, k));n
+
+
+// find the logest array lenth with sum equal to the k
+function getLongestSubarray(a,k2){
+    let n = a.length
+    let sum = 0
+    let maxLen = 0
+    let prefixmap = new Map()
+    for(let i = 0;i<n;i++){
+        sum += arr[a]
+
+        if(sum === k2){
+            maxLen = Math.max(maxLen,i+1)
+        }
+        let rem = sum - k2
+        if(prefixmap.has(rem)){
+            let len = i - prefixmap.get(rem)
+            maxLen = Math.max(maxLen,len)
+        } 
+        if(!prefixmap.has(sum)){
+            prefixmap.set(sum,i)
+        }
+    }
+    return maxLen
+}
+let a = [2, 3, 5, 1, 9]; 
+let k2 = 10;
+ let len = getLongestSubarray(a, k2); 
+ console.log("The length of the longest subarray is:", len);
