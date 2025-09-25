@@ -83,45 +83,9 @@ let arr = [2, 6, 5, 8, 11]
 let target = 14
 let ans = "This is the answer for variant 1:" + findTarget(arr, target);
 console.log(ans)
-// 2nd variant: brute force
-
-function varieanttwo(arr1,t){
-    let n = arr1.length
-    for(let i = 0;i<n;i++){
-        for(let j = i +1;j<n;j++){
-            if(arr1[i]+arr1[j] === t){
-                return [i,j]
-
-            }
-        }
-    }
-    return [-1,-1]
-}
-let arr1 = [2, 6, 5, 8, 11]
-let t = 14
-let ans1 = "This is the answer for variant 2:" + varieanttwo(arr1, t);
-console.log(ans1)
 
 
-// better solution 
 
-function betterSolution(arr,t){
-    let n = arr.length
-    let hashmap = new Map() // uing a map to store index number
-    for(let i = 0;i<n;i++){
-        let num = arr[i] // means 2 = arr[0],3= arr[1],1 = arr[2]
-        let numpresent = t - num 
-        if(hashmap.has(numpresent)){ // cheacking is number present the answer is No becuse it just started the loop 
-
-            return "Yes"
-        }else{                                                    //num  inx
-            (hashmap.set(num,i))  // if not then store the number {{2 → 0, 6 → 1, 5 → 2}}
-        }
-
-    }
-    return "No"
-}
-console.log(betterSolution([2,3,1,4],4))
 
 
 

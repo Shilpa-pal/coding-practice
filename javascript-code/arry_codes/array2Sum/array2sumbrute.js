@@ -24,6 +24,25 @@ let target = 14
 let ans = "This is the answer for variant 1:" + findTarget(arr, target);
 console.log(ans)
 
+// better solution 
+
+function betterSolution(arr,t){
+    let n = arr.length
+    let hashmap = new Map() // uing a map to store index number
+    for(let i = 0;i<n;i++){
+        let num = arr[i] // means 2 = arr[0],3= arr[1],1 = arr[2]
+        let numpresent = t - num 
+        if(hashmap.has(numpresent)){ // cheacking is number present the answer is No becuse it just started the loop 
+
+            return "Yes"
+        }else{                                                    //num  inx
+            (hashmap.set(num,i))  // if not then store the number {{2 → 0, 6 → 1, 5 → 2}}
+        }
+
+    }
+    return "No"
+}
+console.log(betterSolution([2,3,1,4],4))
 
 // optimal solution 
 
