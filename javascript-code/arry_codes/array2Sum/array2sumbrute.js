@@ -45,8 +45,9 @@ function betterSolution(arr,t){
 console.log(betterSolution([2,3,1,4],4))
 
 // optimal solution 
-
+// by using Two-pointerapproach and it always requires a sorted array.
 function optimalSol(arr1, k1) {
+    arr1.sort((a, b) => a - b);// // Sort the array first
     let n = arr1.length
     let left = 0
     let right = n - 1 //becuse going right to left means towards 0 inx
@@ -55,8 +56,9 @@ function optimalSol(arr1, k1) {
         if (sum === k1) {
             return "yes";
         } else if (sum < k1) { // if sum less than target left idx go to next index i.e is ++
-            left++
+            left++//makes the sum bigger.
         } else {
+            //Moving right-- Moving left++makes the sum smaller.
             right--;// if sum > k then go to right-- becuase we going towards left that's why --
         }
     }

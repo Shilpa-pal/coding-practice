@@ -36,3 +36,4 @@ function findIndxSum(a, t) {
 
 }
 console.log(findIndxSum([2, 3, 1, 4], 4))
+
