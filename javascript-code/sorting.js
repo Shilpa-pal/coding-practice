@@ -55,6 +55,7 @@ console.log("Sorted array:", selectionSort(arr));
 
 
 /// bubble sort code   od iterative method  
+// it works on change one by one index means beside
 
 function bubbleShort(array) {
     let n = array.length
