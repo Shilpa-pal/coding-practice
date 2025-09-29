@@ -11,17 +11,17 @@
 
 function majorityElement(arr){
     let n = arr.length
-    let freq = 0,ans = 0
+    let freq = 0,ans = 0// freq = candidate's count, ans = current candidate
     for(let i =0;i<n;i++ ){
         if(freq === 0 ){
-            ans = arr[i]
+            ans = arr[i]// if no candidate, pick current element as candidate
         }if(ans === arr[i]){
-            freq++
+            freq++//// same as candidate → increase count
         }else{
-            freq--
+            freq--  // different → decrease count
         }
     }
-    return ans
+    return ans  // returns the majority element
 }
 let arr = [1,2,2,1,1]
 console.log(majorityElement(arr))
