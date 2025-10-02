@@ -51,6 +51,9 @@ function alternateOfSubarray(ar){
         for(let j =i;j<n;j++){// here I not used nested loop k because it were prit start to end indx
             //I removed the 3rd loop because instead of recalculating the sum from scratch, we “carry it forward” using cursum.
             cursum+= ar[j] // we can write this like cursum = cursum+ar[j]) both have same meaning
+           // current subarray = arr[i.....j]
+            //add the current element arr[j]
+            // to the sum i.e. sum of arr[i...j-1]
             maxsum = Math.max(cursum,maxsum)
         }
     }
@@ -58,5 +61,4 @@ function alternateOfSubarray(ar){
 }
 const ar = [1, 2, 3, 4, 5];
 console.log("Printing maximum subarray sum with timeComplexity O(N2)",alternateOfSubarray(ar))
-
 

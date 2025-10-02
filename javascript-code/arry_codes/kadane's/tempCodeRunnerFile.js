@@ -1,16 +1,28 @@
+// some varient subarray is:"
+function maxSubarraySum(arr) {
+    let n = arr.length
+    let max = Number.MIN_SAFE_INTEGER
+    let sum = 0
+    let start = 0, anStart = -1, ansEnd = -1
 
-function alternateOfSubarray(ar){
-    let n = ar.length
-    let maxsum = Number.MIN_SAFE_INTEGER;
-    for(let i = 0;i<n;i++){
-        let cursum = 0
-        for(let j =i;j<n;j++){
-            cursum+= ar[j]
-            maxsum = Math.max(cursum,maxsum)
+    
+    for (let i = 0; i < n; i++) {
+        if (sum === 0) {
+            start = i
+
         }
-        return maxsum
+        sum += arr[i]
+        if (sum > max) {
+            max = sum
+            anStart = start
+            ansEnd = i
+        }
+        if (sum < 0) {
+            sum = 0
+        }
     }
-    return 0
+    console.log("The maximum subarray sum is:", max);
+    console.log("The subarray is:", arr.slice(anStart, ansEnd + 1));
 }
-const ar = [1, 2, 3, 4, 5];
-console.log("Printing maximum subarray sum with timeComplexity O(N2)",alternateOfSubarray(ar))
+const arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+maxSubarraySum(arr);
