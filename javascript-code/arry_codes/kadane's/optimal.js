@@ -39,14 +39,13 @@ function maxSubarraySum(arr) {
             //Note is number less than max than it useless 
 
         }
-        sum += arr[i]  // it calulate sum 
+        sum =  sum + arr[i]  // it calulate sum 
         //When we find a new maximum sum (sum > maxi), we want to remember which subarray gave us this new best sum.
         if (sum > max) {
             max = sum
             anStart = start //start = where that subarray began.
             ansEnd = i//i = where that subarray ended (current index).
-            Array: [-2, 1, -3, 4]
-
+//Array: [-2, 1, -3, 4]
 // At i=0: sum = -2 (bad) → reset sum=0, and set start = 1 (next element may start new subarray).
 // At i=1: sum = 1 (new maximum) → lock:
 // ansStart = start = 1
@@ -60,7 +59,11 @@ function maxSubarraySum(arr) {
         }
     }
     console.log("The maximum subarray sum is:", max);
+    //If the best subarray is from index 3 to 6then ansStart = 3 ,ansEnd = 6
+    //But if we just do arr.slice(3, 6), we’ll only get indices 3, 4, 5 → [4, -1, 2] , (missing last element).
+//So we add +1:
     console.log("The subarray is:", arr.slice(anStart, ansEnd + 1));
+
 }
 const arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 maxSubarraySum(arr);
