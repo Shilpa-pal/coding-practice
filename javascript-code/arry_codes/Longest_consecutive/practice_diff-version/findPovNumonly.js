@@ -35,3 +35,60 @@ function countConsecutivePositives(arr) {
 }
 let arr = [1, 2, -3, 4, 5, 6, -1, 2];
 console.log(countConsecutivePositives(arr))
+
+
+// uisng map same approach 
+function countConsecutivePositives(arr) {
+    let map = {};
+    for (let num of arr) {
+        if (num > 0) map[num] = true; // store only positives
+    }
+
+    let longest = 0;
+
+    for (let num in map) {
+        num = Number(num);
+        if (!map[num - 1]) { // start of sequence
+            let cnt = 1;
+            let currentNum = num;
+            // run loop untill currentnum +1 number is present 
+            while (map[currentNum + 1]) {
+                currentNum++;
+                cnt++;
+            }
+
+            longest = Math.max(longest, cnt);
+        }
+    }
+
+    return longest;
+}
+
+let array = [1, 2, -3, 4, 5, 6, -1, 2];
+console.log(countConsecutivePositives(array)); // 3
+
+
+//finding postive number only using sorting
+
+function countConsecutivePositives(array2) {
+    array2 = array2.filter(x => x > 0); // only positive numbers
+    if (array2.length === 0) return 0;
+
+    array2.sort((a, b) => a - b); // sort ascending
+    let longest = 1, cnt = 1;
+
+    for (let i = 1; i < array2.length; i++) {
+        if (array2[i] === array2[i - 1]) continue; // skip duplicate
+        if (array2[i] === array2[i - 1] + 1) {
+            cnt++;
+        } else {
+            cnt = 1;
+        }
+        longest = Math.max(longest, cnt);
+    }
+
+    return longest;
+}
+
+let array2 = [1, 2, -3, 4, 5, 6, -1, 2];
+console.log(countConsecutivePositives(array2)); // 3

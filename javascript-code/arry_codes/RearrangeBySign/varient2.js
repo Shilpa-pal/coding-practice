@@ -81,6 +81,8 @@ let arr = [1, 2, -4, -5, 3, 4];
 
 let ans = rearrangeSignWithLeftOver(arr);
 
-for (let i = 0; i < ans.length; i++) {
-    console.log(ans[i]);
-}
+// for (let i = 0; i < ans.length; i++) {
+//     // console.log(ans[i]);
+//     console.log(ans.join(" "));
+// }
+console.log(ans.join(" ")); // instead of above we can write like this way also 

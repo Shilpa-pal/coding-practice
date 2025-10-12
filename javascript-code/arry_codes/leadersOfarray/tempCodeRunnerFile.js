@@ -1,0 +1,1 @@
+console.log("leader of array is here ", countleaders(arr))
