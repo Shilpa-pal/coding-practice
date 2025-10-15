@@ -21,8 +21,7 @@ function zeroMatrix(matrix) {
     let col0 = 0
 
     // Step 1: Traverse the matrix and mark 1st row & col accordingly:
-    //We use first row and first column as markers to remember which rows and columns
-    //  should be set to 0 later.
+    //We use first row and first column as markers to remember which rows and columns should be set to 0 later.
 
     for (let i = 0; i < n; i++) {
         for (j = 0; j < m; j++) {
