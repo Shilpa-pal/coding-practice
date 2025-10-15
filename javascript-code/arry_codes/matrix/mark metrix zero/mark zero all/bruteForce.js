@@ -22,7 +22,7 @@
 
 //In markRow, I pass i because I already know which row has the zero.
 //and inside that function, I loop through all columns j in that row.
-function markRow(matrix,n,m,i){//
+function markRow(matrix,n,m,i){//  it take N + M working seprately both the for loop 
     // set all non-zero elements as -1 in the row i:
     for(j=0;j<m;j++){
         if(matrix[i][j] !==0){
@@ -41,16 +41,18 @@ function markCol(matrix,n,m,j){
     }
 }
 // Set -1 for rows and cols that contains 0. Don't mark any 0 as -1:
+// below taking TC -timecomplexity - n*m becuse here nested loop
 function markAllzero(matrix,i,j){
     for(i=0;i<n;i++){
         for(j =0;j<m;j++){
             if(matrix[i][j]===0){
-                markRow(matrix,n,m,i)
+                markRow(matrix,n,m,i)   
                 markCol(matrix,n,m,j)
             }
         }
     }
     // Finally, mark all -1 as 0:
+    //below taking TC -timecomplexity - n*m becuse here nested loop also 
     for(let i=0;i<n;i++){
         for(j=0;j<m;j++){
              if(matrix[i][j]===-1){
