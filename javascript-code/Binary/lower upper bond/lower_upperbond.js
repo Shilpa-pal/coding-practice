@@ -61,10 +61,11 @@ console.log("The lower bound is the index:", indx);
 // upper bound
 
 function upperBound(array1,y){
+    let n = array1.length
     let low = 0,high = n-1
     let answer = n
     while(low <=high){
-    let mid = ((low + high) /2)
+    let mid = Math.floor((low + high) /2)
         if(array1[mid]>y){
             answer= mid
             high = mid-1
@@ -76,5 +77,5 @@ function upperBound(array1,y){
 }
 let array1 = [3, 5, 8, 15, 19];
 let n2= 5, y = 9;
-let index = upperBound(array, n2, y)
+let index = upperBound(array1, n2, y)
 console.log("The higher bound is the index:", index);
