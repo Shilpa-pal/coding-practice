@@ -10,7 +10,7 @@
 //optimal approach
 function findFloor(arr, n, x) {
     let low = 0, high = n - 1
-    let ans = -1 //It gives a default “not found” value.
+    let ans = -1 //It (gives a default “not found” value.
     //If at the end ans is still -1, it means there was no valid floor or ceil in the array
      //sefty-Prevents errors when no suitable element exists.
 
