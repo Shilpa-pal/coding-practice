@@ -25,14 +25,26 @@ function zeroMatrix(matrix) {
 
     for (let i = 0; i < n; i++) {
         for (j = 0; j < m; j++) {
-            if (matrix[i][j] === 0) {
-                //ith row make zero
-                (matrix[i][0]) = 0
+            if (matrix[i][j] === 0) { //this condition meanwe must make its entire row and its entire column 0.
+                //(mean below line)ith row make  entire row 
+                (matrix[i][0]) = 0 //matrix[i][0] = 0 → to remember that the entire row i should become zero
                 // jth col make zero
-                if (j !== 0) {
-                    (matrix[0][j]) = 0
+                if (j !== 0) {//That means the zero is not in the first column.
+                    (matrix[0][j]) = 0 //// Mark this entire column
                 } else {
-                    col0 = 0
+                    //Else (j == 0)
+                    // → That means the zero is in the first column.
+                    // → We can’t use matrix[0][0] for marking (it’s shared).
+                    // → So we use col0 = 0 as a separate flag to remember
+
+                    col0 = 0  //Without that separate col0 variable, the logic would fail for cases where 
+                    //the zero appears in the first column — because matrix[0][0] can’t represent
+                    //  both first row and first column together.
+
+                    //note
+                    //matrix[i][0] = 0 → mark the row
+                    // matrix[0][j] = 0 → mark the column (if not the first)
+                    // col0 = 0 → mark the first column (special case)
                 }
             }
         }
@@ -50,7 +62,6 @@ function zeroMatrix(matrix) {
             }
         }
     }
-
     if (matrix[0][0] = 0) {
         for (j = 0; j < m; j++) {
             matrix[0][j] = 0// if above condition is true then every ele in 1st row all be zero 
@@ -63,11 +74,11 @@ function zeroMatrix(matrix) {
     return matrix
 }
 
-  const matrix = [
+const matrix = [
     [1, 1, 1, 1],
     [1, 0, 1, 1],
     [1, 1, 0, 1],
     [0, 1, 1, 1],
-  ];
+];
 const ans = zeroMatrix(matrix)
-console.log("The Final matrix is:",ans)
+console.log("The Final matrix is:", ans)

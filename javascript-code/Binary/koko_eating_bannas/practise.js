@@ -1,3 +1,51 @@
+//Problem Statement: A monkey Koko is given ‘n’ piles of bananas, whereas the 'ith' 
+// pile has ‘a[i]’ bananas. An integer ‘h’ is also given, which denotes
+// the time (in hours) for all the bananas to be eaten.
+
+// Input: N = 4, a[] = {7, 15, 6, 3}, h = 8
+// Output: 5
+// Explanation:  If Koko eats 5 bananas/hr, he will take 2, 3, 2, and 1 hour to eat the piles accordingly. So, he will take 8 hours to complete all the piles.  
+
+// Input: N = 5, a[] = {25, 12, 8, 14, 19}, h = 5
+// Output: 25
+// Explanation: If Koko eats 25 bananas/hr, he will take 1, 1, 1
+
+
+function KokoeatBanana(array, h) {
+    let n = array.length
+    let maxElement = Math.max(...array)
+    if (n > h) return -1
+    let low = 1
+    let high = maxElement
+    let result = -1
+
+    function eatBananaSum(hour) {
+        let sum = 0
+        for (let num of array) {
+            sum += Math.ceil(num/hour)
+        }
+        return sum
+    }
+    while (low <= high){
+        let mid = Math.floor((low + high)/2)
+        sum = eatBananaSum(mid)
+        if(sum<=h){
+            result = mid
+            high = mid -1
+        }else{
+            low = mid + 1
+        }
+    }
+    return result 
+}
+let array = [3,6, 7,11,13]
+let h =10
+
+console.log("Answer of Koko eating in minimum time banana is ",KokoeatBanana(array,h))
+
+
+
+
 // // Find the Smallest Divisor Given a Threshold
 // //Problem Statement: You are given an array of integers 'arr' and an integer i.e. a 
 // // threshold value 'limit'. Your task is to find the smallest positive integer divisor,
@@ -19,7 +67,7 @@ function largestdivisor(arr1, limit1) {
     function calculateSum(divisor) {
         let sum = 0
         for (let num of arr1) {
-            sum += Math.ceil(num/divisor)
+            sum += Math.ceil(num / divisor)
         }
         return sum
     }
@@ -29,7 +77,7 @@ function largestdivisor(arr1, limit1) {
         if (sum <= limit1) {
             result = mid
             low = mid + 1
-            
+
         } else
             high = mid - 1
     }

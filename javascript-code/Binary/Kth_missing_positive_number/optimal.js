@@ -68,7 +68,7 @@ function alternativesolutionK(arr1,k1){
              high = mid - 1
             
         }else{
-           
+        
             low = mid + 1
         }
     }
