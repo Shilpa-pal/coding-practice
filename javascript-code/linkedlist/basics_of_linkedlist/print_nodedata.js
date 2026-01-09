@@ -8,3 +8,5 @@ class Node {
 let arr = [2,5,6,8]
 let y = new Node(arr[2])
 console.log(y.data)
+
+// out put = 6
