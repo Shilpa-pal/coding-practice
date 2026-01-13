@@ -30,6 +30,9 @@ function insertHead(head,val){
 
     let temp = new Node(val,head)
     return temp
+
+    //return new Node(head,val) //we can write this to but we have to commment above two line and in bottom we have to 
+    // write this and comment out the above calling function head = new Node (100,head)
 }
 
 function print(head){
@@ -49,4 +52,6 @@ let head = convertArrToLL(arr)
 
 // insertion of head
 head = insertHead(head,100)
+
+// head = new Node (100,head)
 print(head)
