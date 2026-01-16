@@ -22,8 +22,8 @@ function convertionOfArrtoDL(arr) {
 }
 
 // remove head in double linked lsit
-function removehead(head) {
-    //1st if array is empty ,2nd if the list has only one node ,after removing it, 
+function removeHead(head) {
+    //1st. if array is empty ,2nd. if in the list has only one node ,after removing it, 
     // the list becomes empty
     if (head === null || head.next === null) {
         return null
@@ -44,12 +44,12 @@ function removehead(head) {
 [10] <-> [20] <-> [30]
          ↑
        head
-But problem 😬 20.back is still pointing to 10
+But problem  20.back is still pointing to 10
 Fixing the problem :head.back = null;
 Now: null <- [20] <-> [30] */
 
     head.back = null;  // new head has no back
-   
+
     /*Before removing head
     prev/head
        ↓
@@ -57,7 +57,21 @@ Now: null <- [20] <-> [30] */
     
     After this line  prev.next = null;
     [10]     [20] <-> [30]
-     [10] is now completely disconnected */
+     [10] is now completely disconnected 
+     note:head.back = null only breaks ONE direction.
+    ---After head.back = null-----
+You broke only one hand:
+[10] -> [20] <-> [30]
+[20] let go of [10] BUT [10] is still holding [20] 
+That means: prev.next === head   //still TRUE 
+
+After prev.next = null
+Now you break the other hand:
+[10]     [20] <-> [30]
+
+✅ Both sides released
+✅ Old head is fully removed
+✅ List is clean and correct */
     prev.next = null  // disconnect old head
     return head
 }
@@ -76,6 +90,5 @@ function printAll(head) {
 
 let arr = [23, 45, 11, 22]
 let head = convertionOfArrtoDL(arr)
-head = removehead(head)
-
+head = removeHead(head)
 printAll(head)
