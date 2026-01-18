@@ -55,8 +55,6 @@ function insertBeforetail(head,val){
     return head
 }
 
-
-
 function print(head) {
     let curr = head
     while (curr) {
