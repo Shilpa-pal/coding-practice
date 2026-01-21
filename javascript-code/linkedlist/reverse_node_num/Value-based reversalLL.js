@@ -1,4 +1,4 @@
-
+// value based reverseal linked list
 class ListNode{
     constructor(data,next=null){
         this.data = data;
