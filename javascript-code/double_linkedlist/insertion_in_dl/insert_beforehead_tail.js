@@ -1,3 +1,4 @@
+//insert at Kth element
 
 class Node {
     constructor(data, next = null, back = null) {

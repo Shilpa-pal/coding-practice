@@ -68,8 +68,8 @@ function removeKthEle(head, k) {
     let prev = kNode.back
     let front = kNode.next
 
-    // if 'prev' equal t
-    // o null and 'front' equal to null it means it has single element ,to delete them we have return null
+    // if 'prev' equal to null and 'front' equal to null it means it has single element ,
+    // to delete them we have return null
     if (prev === null && front === null) {
         return null
     }
