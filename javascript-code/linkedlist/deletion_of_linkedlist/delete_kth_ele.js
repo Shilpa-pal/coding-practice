@@ -72,12 +72,12 @@ class linkedList {
 
             //If current node is k-th,We found the node to delete
             if (cnt === k) {
-                prev.next = prev.next.next ////Delete by skipping it
+                prev.next = prev.next.next //Delete by skipping it
                 // why above one work ?prev.next IS temp
                 // prev.next.next IS temp.next
 
                 // prev.next = temp.next // we can write any either above one or this one 
-                //using temp Skip temp and directly connect prev to the node after tem
+                //using temp Skip temp and directly connect prev to the node after temp
                 //                 temp IS the node to be deleted
                 // prev is the node just before it
                 break

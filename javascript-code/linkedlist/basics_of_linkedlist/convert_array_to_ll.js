@@ -22,7 +22,7 @@ class linkedlist {
         //We don’t move head — it must stay safe.
         let mover = head //so it stand with 1st place 
         for (let i = 1; i < arr.length; i++) {
-            //storeing avlue in temprary
+            //storing a value in temprary
             let temp = new Node(arr[i]); // create new node
             mover.next = temp;// connect previous node to new node
             mover = temp// move forward
@@ -32,7 +32,7 @@ class linkedlist {
 }
 let arr = [2, 5, 6, 9]
 
-let ll = new linkedlist(arr)//create a object (this line come when i used class linkedlist)
+let ll = new linkedlist()//create a object (this line come when i used class linkedlist)
 let head = ll.convertArr2LL(arr)// call method
 
-console.log(head.data)
+// console.log(head.data)
